@@ -24,10 +24,12 @@
         android:title="@string/power_menu_reboot_title"
         android:defaultValue="true" />
 
+<!-- **** GANBAROU ADDITIONS STARTS **** -->
     <CheckBoxPreference
         android:key="power_menu_screenshot"
         android:title="@string/power_menu_screenshot_title"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
+<!-- **** GANBAROU ADDITIONS END **** -->
 
     <CheckBoxPreference
         android:key="power_menu_expanded_desktop"
@@ -37,12 +39,14 @@
     <CheckBoxPreference
         android:key="power_menu_profiles"
         android:title="@string/power_menu_profiles_title"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
+<!-- **** GANBAROU ADDITIONS STARTS **** -->
     <CheckBoxPreference
         android:key="power_menu_airplane"
         android:title="@string/power_menu_airplane_title"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
+<!-- **** GANBAROU ADDITIONS END **** -->
 
     <CheckBoxPreference
         android:key="power_menu_user"

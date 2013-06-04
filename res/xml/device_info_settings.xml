@@ -41,6 +41,7 @@
         </PreferenceScreen>
 
         <!-- CyanogenMod Updates -->
+<!-- **** GANBAROU ADDITIONS STARTS ****
         <PreferenceScreen android:key="cm_updates"
                 android:title="@string/cmupdate_settings_title" 
                 android:summary="@string/cmupdate_settings_summary">
@@ -48,20 +49,25 @@
                     android:targetPackage="com.cyanogenmod.updater"
                     android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
         </PreferenceScreen>
+**** GANBAROU ADDITIONS END **** -->
 
         <!-- Anonymous statistics - (CMStats) -->
+<!-- **** GANBAROU ADDITIONS STARTS ****
         <PreferenceScreen
             android:key="cmstats"
             android:title="@string/anonymous_statistics_title"
             android:summary="@string/anonymous_statistics_summary"
             android:fragment="com.android.settings.cmstats.AnonymousStats" >
         </PreferenceScreen>
+**** GANBAROU ADDITIONS END **** -->
 
         <!-- Change Log -->
+<!-- **** GANBAROU ADDITIONS STARTS **** -->
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
             android:fragment="com.android.settings.cyanogenmod.ChangeLog" >
         </PreferenceScreen>
+<!-- **** GANBAROU ADDITIONS END **** -->
 
         <!-- Legal Information -->
         <PreferenceScreen

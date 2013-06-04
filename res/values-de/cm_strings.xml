@@ -48,7 +48,7 @@
     <string name="notification_convert_sound_to_vibration_title">Bei Benachrichtigungen vibrieren</string>
     <string name="notification_convert_sound_to_vibration_summary">Im Vibrationsmodus erfolgt unabhängig von in Apps gesetzten Einstellungen bei jeder Benachrichtigung eine Vibration</string>
     <string name="device_hostname">Hostname des Geräts</string>
-    <string name="mod_version">CyanogenMod-Version</string>
+    <string name="mod_version">Ganbarou-Version</string>
     <string name="mod_version_default">Unbekannt</string>
     <string name="build_date">Build-Datum</string>
     <string name="cpu_info">Prozessor</string>

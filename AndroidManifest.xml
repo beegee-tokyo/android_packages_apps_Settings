@@ -1046,6 +1046,7 @@
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <!-- Anonymous Statistics -->
+<!-- **** GANBAROU ADDITIONS STARTS ****
         <receiver android:name=".cmstats.ReportingServiceManager"
             android:enabled="true"
             android:exported="false"
@@ -1061,6 +1062,7 @@
             android:exported="false"
             android:name=".cmstats.ReportingService">
         </service>
+**** GANBAROU ADDITIONS END **** -->
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"
@@ -1619,7 +1621,9 @@
 
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
+<!-- **** GANBAROU ADDITIONS STARTS ****
         <activity android:name=".cyanogenmod.ChangeLog" />
+**** GANBAROU ADDITIONS END **** -->
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 

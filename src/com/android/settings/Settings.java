@@ -123,6 +123,10 @@ public class Settings extends PreferenceActivity
             R.id.date_time_settings,
             R.id.about_settings,
             R.id.accessibility_settings,
+// **** GANBAROU ADDITIONS STARTS ****
+            R.id.development_settings,
+            R.id.performance_settings,
+// **** GANBAROU ADDITIONS END ****
             R.id.interface_section,
             R.id.launcher_settings,
             R.id.lock_screen_settings,
@@ -149,6 +153,12 @@ public class Settings extends PreferenceActivity
         mAuthenticatorHelper = new AuthenticatorHelper();
         mAuthenticatorHelper.updateAuthDescriptions(this);
         mAuthenticatorHelper.onAccountsUpdated(this, null);
+
+// **** GANBAROU ADDITIONS STARTS ****
+        getSharedPreferences(DevelopmentSettings.PREF_FILE, Context.MODE_PRIVATE).edit()
+                    .putBoolean(DevelopmentSettings.PREF_SHOW, true)
+                    .apply();
+// **** GANBAROU ADDITIONS END ****
 
         mDevelopmentPreferences = getSharedPreferences(DevelopmentSettings.PREF_FILE,
                 Context.MODE_PRIVATE);
