@@ -4378,10 +4378,7 @@
     <string name="cell_broadcast_settings">Cell broadcasts</string>
     <!-- Cell Broadcast settings description [CHAR LIMIT=100] -->
     <string name="cell_broadcast_settings_summary">Select the types of emergency alerts to display.</string>
-<!-- **** GANBAROU ADDITIONS STARTS **** -->
-    <!-- TabletUI patch Original Patch by Scott Brady <sbradymobile@gmail.com> -->
-    <string name="status_bar_tablet_title">Tablet Tweaks</string>
-    <string name="tablet_ui_title">Tablet UI</string>
+<!-- **** GANBAROU_PATCH_START **** -->
     <!-- Navigation bar position dialog title -->
     <string name="nav_pos_dialog_title">Navigation bar position</string>
     <!-- Navigation bar position option -->
@@ -4390,5 +4387,5 @@
     <string name="nav_pos_default">center</string>
     <!-- Navigation bar help title -->
     <string name="navigation_bar_help_title">Navigation bar help</string>
-<!-- **** GANBAROU ADDITIONS END **** -->
+<!-- **** GANBAROU_PATCH_END **** -->
 </resources>

@@ -96,6 +96,12 @@
             android:hardwareAccelerated="true"
             android:supportsRtl="true">
 
+        <receiver android:name=".cyanogenmod.LockscreenInterface$DeviceAdminLockscreenReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_lockscreen" />
+        </receiver>
+
         <!-- Only system/su can open this activity -->
         <!-- This activity will then call the MultitaskSuRequestActivity to create a new task stack -->
         <activity
@@ -1048,7 +1054,7 @@
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <!-- Anonymous Statistics -->
-<!-- **** GANBAROU ADDITIONS STARTS ****
+<!-- **** GANBAROU_PATCH_START ****
         <receiver android:name=".cmstats.ReportingServiceManager"
             android:enabled="true"
             android:exported="false"
@@ -1064,7 +1070,7 @@
             android:exported="false"
             android:name=".cmstats.ReportingService">
         </service>
-**** GANBAROU ADDITIONS END **** -->
+**** GANBAROU_PATCH_END **** -->
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"
@@ -1625,9 +1631,9 @@
 
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
-<!-- **** GANBAROU ADDITIONS STARTS ****
+<!-- **** GANBAROU_PATCH_START ****
         <activity android:name=".cyanogenmod.ChangeLog" />
-**** GANBAROU ADDITIONS END **** -->
+**** GANBAROU_PATCH_END **** -->
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 

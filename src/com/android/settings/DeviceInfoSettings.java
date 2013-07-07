@@ -111,13 +111,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
         String memInfo = getMemInfo();
 
         // Only the owner should see the Updater settings, if it exists
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
             removePreferenceIfPackageNotInstalled(findPreference(KEY_CM_UPDATES));
         } else {
             getPreferenceScreen().removePreference(findPreference(KEY_CM_UPDATES));
         }
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
         if (cpuInfo != null) {
             setStringSummary(KEY_DEVICE_CPU, cpuInfo);

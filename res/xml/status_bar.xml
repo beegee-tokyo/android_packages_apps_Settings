@@ -67,16 +67,4 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-<!-- **** GANBAROU ADDITIONS STARTS **** -->
-    <!-- TabletUI patch Original Patch by Scott Brady <sbradymobile@gmail.com> -->
-    <PreferenceCategory
-        android:title="@string/status_bar_tablet_title">
-
-        <CheckBoxPreference
-            android:key="tablet_ui"
-            android:title="@string/tablet_ui_title"
-            android:defaultValue="true" />
-    </PreferenceCategory>
-<!-- **** GANBAROU ADDITIONS END **** -->
-
 </PreferenceScreen>

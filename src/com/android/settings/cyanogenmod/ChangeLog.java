@@ -42,9 +42,9 @@ import com.android.internal.app.AlertController;
 
 public class ChangeLog extends Fragment {
 
-/* **** GANBAROU ADDITIONS STARTS **** */
+/* **** GANBAROU_PATCH_START **** */
     private static final String CHANGELOG_PATH = "/system/etc/Ganbarou_Changelog.txt";
-/* **** GANBAROU ADDITIONS END **** */
+/* **** GANBAROU_PATCH_END **** */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -30,22 +30,12 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.Slog;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-
-// **** GANBAROU ADDITIONS STARTS ****
-import android.app.Activity;
-import android.content.ContextWrapper;
-import android.content.Intent;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
-import android.util.Slog;
-import android.view.View;
-// **** GANBAROU ADDITIONS END ****
 
 public class SystemSettings extends SettingsPreferenceFragment  implements
         Preference.OnPreferenceChangeListener {
@@ -57,9 +47,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_NAVIGATION_RING = "navigation_ring";
     private static final String KEY_NAVIGATION_BAR_CATEGORY = "navigation_bar_category";
-    // **** GANBAROU ADDITIONS STARTS ****
-    // private static final String KEY_LOCK_CLOCK = "lock_clock";
-    // **** GANBAROU ADDITIONS END ****
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
@@ -76,10 +64,10 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
 
     private boolean mIsPrimary;
 
-    // **** GANBAROU ADDITIONS STARTS ****
+    // **** GANBAROU_PATCH_START ****
     private static final String KEY_NAV_BAR_POS = "nav_position";
     ListPreference mNavPos;
-    // **** GANBAROU ADDITIONS END ****
+    // **** GANBAROU_PATCH_END ****
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,11 +76,11 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         addPreferencesFromResource(R.xml.system_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        // **** GANBAROU ADDITIONS STARTS ****
+        // **** GANBAROU_PATCH_START ****
         // Set listener for Navigation Bar Position ListPreference
         mNavPos = (ListPreference) prefScreen.findPreference(KEY_NAV_BAR_POS);
         mNavPos.setOnPreferenceChangeListener(this);
-        // **** GANBAROU ADDITIONS END ****
+        // **** GANBAROU_PATCH_END ****
 
         // Only show the hardware keys config on a device that does not have a navbar
         // and the navigation bar config on phones that has a navigation bar
@@ -180,10 +168,8 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             Log.e(TAG, "Error getting navigation bar status");
         }
 
-        // **** GANBAROU ADDITIONS STARTS ****
         // Don't display the lock clock preference if its not installed
-        // removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
-        // **** GANBAROU ADDITIONS END ****
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
     }
 
     @Override
@@ -219,7 +205,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             updateExpandedDesktop(value ? 2 : 0);
             return true;
         }
-        // **** GANBAROU ADDITIONS STARTS ****
+        // **** GANBAROU_PATCH_START ****
         if (preference == mNavPos) {
 Slog.d("NavBarPos", "mNavPos has changed to " + objValue.toString());
             int mNavPosSel = 2;
@@ -231,7 +217,7 @@ Slog.d("NavBarPos", "mNavPos has changed to " + objValue.toString());
             Settings.System.putInt(getContentResolver(), Settings.System.NAV_BAR_POS, mNavPosSel);
             return true;
         }
-        // **** GANBAROU ADDITIONS ENDS ****
+        // **** GANBAROU_PATCH_ENDS ****
         return false;
     }
 

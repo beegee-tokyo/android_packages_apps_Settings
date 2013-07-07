@@ -73,9 +73,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-// **** GANBAROU ADDITIONS STARTS ****
+// **** GANBAROU_PATCH_START ****
 import android.util.Slog;
-// **** GANBAROU ADDITIONS END ****
+// **** GANBAROU_PATCH_END ****
 
 /*
  * Displays preferences for application developers.
@@ -105,9 +105,9 @@ public class DevelopmentSettings extends PreferenceFragment
     private static final String ENFORCE_READ_EXTERNAL = "enforce_read_external";
     private static final String LOCAL_BACKUP_PASSWORD = "local_backup_password";
     private static final String HARDWARE_UI_PROPERTY = "persist.sys.ui.hw";
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String MSAA_PROPERTY = "debug.egl.force_msaa";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private static final String BUGREPORT = "bugreport";
     private static final String BUGREPORT_IN_POWER_KEY = "bugreport_in_power";
     private static final String OPENGL_TRACES_PROPERTY = "debug.egl.trace";
@@ -115,40 +115,40 @@ public class DevelopmentSettings extends PreferenceFragment
     private static final String DEBUG_APP_KEY = "debug_app";
     private static final String WAIT_FOR_DEBUGGER_KEY = "wait_for_debugger";
     private static final String VERIFY_APPS_OVER_USB_KEY = "verify_apps_over_usb";
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String STRICT_MODE_KEY = "strict_mode";
     private static final String POINTER_LOCATION_KEY = "pointer_location";
     private static final String SHOW_TOUCHES_KEY = "show_touches";
     private static final String SHOW_SCREEN_UPDATES_KEY = "show_screen_updates";
     private static final String DISABLE_OVERLAYS_KEY = "disable_overlays";
     private static final String SHOW_CPU_USAGE_KEY = "show_cpu_usage";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private static final String FORCE_HARDWARE_UI_KEY = "force_hw_ui";
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String FORCE_MSAA_KEY = "force_msaa";
     private static final String TRACK_FRAME_TIME_KEY = "track_frame_time";
     private static final String SHOW_HW_SCREEN_UPDATES_KEY = "show_hw_screen_udpates";
     private static final String SHOW_HW_LAYERS_UPDATES_KEY = "show_hw_layers_udpates";
     private static final String SHOW_HW_OVERDRAW_KEY = "show_hw_overdraw";
     private static final String DEBUG_LAYOUT_KEY = "debug_layout";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private static final String WINDOW_ANIMATION_SCALE_KEY = "window_animation_scale";
     private static final String TRANSITION_ANIMATION_SCALE_KEY = "transition_animation_scale";
     private static final String ANIMATOR_DURATION_SCALE_KEY = "animator_duration_scale";
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String OVERLAY_DISPLAY_DEVICES_KEY = "overlay_display_devices";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private static final String DEBUG_DEBUGGING_CATEGORY_KEY = "debug_debugging_category";
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String OPENGL_TRACES_KEY = "enable_opengl_traces";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private static final String ROOT_ACCESS_KEY = "root_access";
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String ENABLE_TRACES_KEY = "enable_traces";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private static final String IMMEDIATELY_DESTROY_ACTIVITIES_KEY
             = "immediately_destroy_activities";
@@ -162,11 +162,11 @@ public class DevelopmentSettings extends PreferenceFragment
 
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private static final String DEVELOPMENT_TOOLS = "development_tools";
 
     private static final String ADVANCED_REBOOT_KEY = "advanced_reboot";
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private static final int RESULT_DEBUG_APP = 1000;
 
@@ -195,30 +195,30 @@ public class DevelopmentSettings extends PreferenceFragment
     private CheckBoxPreference mVerifyAppsOverUsb;
 
     private CheckBoxPreference mStrictMode;
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private CheckBoxPreference mPointerLocation;
     private CheckBoxPreference mShowTouches;
     private CheckBoxPreference mShowScreenUpdates;
     private CheckBoxPreference mDisableOverlays;
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private CheckBoxPreference mShowCpuUsage;
     private CheckBoxPreference mForceHardwareUi;
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private CheckBoxPreference mForceMsaa;
     private CheckBoxPreference mTrackFrameTime;
     private CheckBoxPreference mShowHwScreenUpdates;
     private CheckBoxPreference mShowHwLayersUpdates;
     private CheckBoxPreference mShowHwOverdraw;
     private CheckBoxPreference mDebugLayout;
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private ListPreference mWindowAnimationScale;
     private ListPreference mTransitionAnimationScale;
     private ListPreference mAnimatorDurationScale;
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private ListPreference mOverlayDisplayDevices;
     private ListPreference mOpenGLTraces;
     private MultiCheckPreference mEnableTracesPref;
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private CheckBoxPreference mImmediatelyDestroyActivities;
     private ListPreference mAppProcessLimit;
@@ -228,11 +228,11 @@ public class DevelopmentSettings extends PreferenceFragment
 
     private ListPreference mRootAccess;
     private Object mSelectedRootValue;
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private PreferenceScreen mDevelopmentTools;
 
     private CheckBoxPreference mAdvancedReboot;
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private final ArrayList<Preference> mAllPrefs = new ArrayList<Preference>();
     private final ArrayList<CheckBoxPreference> mResetCbPrefs
@@ -269,7 +269,7 @@ public class DevelopmentSettings extends PreferenceFragment
         mAllowMockLocation = findAndInitCheckboxPref(ALLOW_MOCK_LOCATION);
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         mAdvancedReboot = findAndInitCheckboxPref(ADVANCED_REBOOT_KEY);
 
         if (!android.os.Process.myUserHandle().equals(UserHandle.OWNER)) {
@@ -277,7 +277,7 @@ public class DevelopmentSettings extends PreferenceFragment
             disableForUser(mPassword);
             disableForUser(mAdvancedReboot);
         }
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
         mAllPrefs.add(mDebugAppPref);
@@ -293,23 +293,23 @@ public class DevelopmentSettings extends PreferenceFragment
                 mVerifyAppsOverUsb.setEnabled(false);
             }
         }
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         mStrictMode = findAndInitCheckboxPref(STRICT_MODE_KEY);
         mPointerLocation = findAndInitCheckboxPref(POINTER_LOCATION_KEY);
         mShowTouches = findAndInitCheckboxPref(SHOW_TOUCHES_KEY);
         mShowScreenUpdates = findAndInitCheckboxPref(SHOW_SCREEN_UPDATES_KEY);
         mDisableOverlays = findAndInitCheckboxPref(DISABLE_OVERLAYS_KEY);
         mShowCpuUsage = findAndInitCheckboxPref(SHOW_CPU_USAGE_KEY);
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         mForceHardwareUi = findAndInitCheckboxPref(FORCE_HARDWARE_UI_KEY);
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         mForceMsaa = findAndInitCheckboxPref(FORCE_MSAA_KEY);
         mTrackFrameTime = findAndInitCheckboxPref(TRACK_FRAME_TIME_KEY);
         mShowHwScreenUpdates = findAndInitCheckboxPref(SHOW_HW_SCREEN_UPDATES_KEY);
         mShowHwLayersUpdates = findAndInitCheckboxPref(SHOW_HW_LAYERS_UPDATES_KEY);
         mShowHwOverdraw = findAndInitCheckboxPref(SHOW_HW_OVERDRAW_KEY);
         mDebugLayout = findAndInitCheckboxPref(DEBUG_LAYOUT_KEY);
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         mWindowAnimationScale = (ListPreference) findPreference(WINDOW_ANIMATION_SCALE_KEY);
         mAllPrefs.add(mWindowAnimationScale);
         mWindowAnimationScale.setOnPreferenceChangeListener(this);
@@ -319,7 +319,7 @@ public class DevelopmentSettings extends PreferenceFragment
         mAnimatorDurationScale = (ListPreference) findPreference(ANIMATOR_DURATION_SCALE_KEY);
         mAllPrefs.add(mAnimatorDurationScale);
         mAnimatorDurationScale.setOnPreferenceChangeListener(this);
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         mOverlayDisplayDevices = (ListPreference) findPreference(OVERLAY_DISPLAY_DEVICES_KEY);
         mAllPrefs.add(mOverlayDisplayDevices);
         mOverlayDisplayDevices.setOnPreferenceChangeListener(this);
@@ -335,7 +335,7 @@ public class DevelopmentSettings extends PreferenceFragment
         mEnableTracesPref.setEntryValues(traceValues);
         mAllPrefs.add(mEnableTracesPref);
         mEnableTracesPref.setOnPreferenceChangeListener(this);
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
         mImmediatelyDestroyActivities = (CheckBoxPreference) findPreference(
                 IMMEDIATELY_DESTROY_ACTIVITIES_KEY);
@@ -364,10 +364,10 @@ public class DevelopmentSettings extends PreferenceFragment
             mAllPrefs.add(mRootAccess);
         }
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         mDevelopmentTools = (PreferenceScreen) findPreference(DEVELOPMENT_TOOLS);
         mAllPrefs.add(mDevelopmentTools);
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     }
 
     private void disableForUser(Preference pref) {
@@ -464,10 +464,10 @@ public class DevelopmentSettings extends PreferenceFragment
         } else {
             mDisabledPrefs.remove(mKeepScreenOn);
         }
-// **** GANBAROU ADDITIONS STARTS ****
+// **** GANBAROU_PATCH_START ****
         // Ganbarou tries to keep this option available even if max time is defined.
         mDisabledPrefs.remove(mKeepScreenOn);
-// **** GANBAROU ADDITIONS END **** 
+// **** GANBAROU_PATCH_END **** 
 
         final ContentResolver cr = getActivity().getContentResolver();
         mLastEnabledState = Settings.Global.getInt(cr,
@@ -514,40 +514,40 @@ public class DevelopmentSettings extends PreferenceFragment
         updateHdcpValues();
         updatePasswordSummary();
         updateDebuggerOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         updateStrictModeVisualOptions();
         updatePointerLocationOptions();
         updateShowTouchesOptions();
         updateFlingerOptions();
         updateCpuUsageOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         updateHardwareUiOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         updateMsaaOptions();
         updateTrackFrameTimeOptions();
         updateShowHwScreenUpdatesOptions();
         updateShowHwLayersUpdatesOptions();
         updateShowHwOverdrawOptions();
         updateDebugLayoutOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         updateAnimationScaleOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         updateOverlayDisplayDevicesOptions();
         updateOpenGLTracesOptions();
         updateEnableTracesOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         updateImmediatelyDestroyActivitiesOptions();
         updateAppProcessLimitOptions();
         updateShowAllANRsOptions();
         updateVerifyAppsOverUsbOptions();
         updateBugreportOptions();
         updateRootAccessOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         updateAdvancedRebootOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     }
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private void resetAdvancedRebootOptions() {
         Settings.Secure.putInt(getActivity().getContentResolver(),
                 Settings.Secure.ADVANCED_REBOOT, 0);
@@ -563,7 +563,7 @@ public class DevelopmentSettings extends PreferenceFragment
         mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.ADVANCED_REBOOT, 0) != 0);
     }
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private void updateAdbOverNetwork() {
         int port = Settings.Secure.getInt(getActivity().getContentResolver(),
@@ -604,9 +604,9 @@ public class DevelopmentSettings extends PreferenceFragment
         }
         resetDebuggerOptions();
         resetRootAccessOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         resetAdvancedRebootOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
         resetAdbNotifyOptions();
         resetVerifyAppsOverUsbOptions();
@@ -614,10 +614,10 @@ public class DevelopmentSettings extends PreferenceFragment
         writeAnimationScaleOption(0, mWindowAnimationScale, null);
         writeAnimationScaleOption(1, mTransitionAnimationScale, null);
         writeAnimationScaleOption(2, mAnimatorDurationScale, null);
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         writeOverlayDisplayDevicesOptions(null);
         writeEnableTracesOptions(0);
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         writeAppProcessLimitOptions(null);
         mHaveDebugSettings = false;
         updateAllOptions();
@@ -836,7 +836,7 @@ public class DevelopmentSettings extends PreferenceFragment
         updateCheckBox(mStrictMode, currentStrictModeActiveIndex() == 1);
     }
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private void writePointerLocationOptions() {
         Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.POINTER_LOCATION, mPointerLocation.isChecked() ? 1 : 0);
@@ -917,7 +917,7 @@ public class DevelopmentSettings extends PreferenceFragment
         }
     }
 
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
     private void updateHardwareUiOptions() {
         updateCheckBox(mForceHardwareUi, SystemProperties.getBoolean(HARDWARE_UI_PROPERTY, false));
     }
@@ -927,7 +927,7 @@ public class DevelopmentSettings extends PreferenceFragment
         pokeSystemProperties();
     }
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private void updateMsaaOptions() {
         updateCheckBox(mForceMsaa, SystemProperties.getBoolean(MSAA_PROPERTY, false));
     }
@@ -1009,7 +1009,7 @@ public class DevelopmentSettings extends PreferenceFragment
             getActivity().stopService(service);
         }
     }
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private void writeImmediatelyDestroyActivitiesOptions() {
         try {
@@ -1060,7 +1060,7 @@ public class DevelopmentSettings extends PreferenceFragment
         }
     }
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private void updateOverlayDisplayDevicesOptions() {
         String value = Settings.Global.getString(getActivity().getContentResolver(),
                 Settings.Global.OVERLAY_DISPLAY_DEVICES);
@@ -1109,7 +1109,7 @@ public class DevelopmentSettings extends PreferenceFragment
         pokeSystemProperties();
         updateOpenGLTracesOptions();
     }
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     private void updateAppProcessLimitOptions() {
         try {
@@ -1152,7 +1152,7 @@ public class DevelopmentSettings extends PreferenceFragment
             getActivity().getContentResolver(), Settings.Secure.ANR_SHOW_BACKGROUND, 0) != 0);
     }
 
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
     private void updateEnableTracesOptions() {
         long flags = SystemProperties.getLong(Trace.PROPERTY_TRACE_TAG_ENABLEFLAGS, 0);
         String[] values = mEnableTracesPref.getEntryValues();
@@ -1193,7 +1193,7 @@ public class DevelopmentSettings extends PreferenceFragment
                 "0x" + Long.toString(value, 16));
         pokeSystemProperties();
     }
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -1319,7 +1319,7 @@ public class DevelopmentSettings extends PreferenceFragment
             writeVerifyAppsOverUsbOptions();
         } else if (preference == mStrictMode) {
             writeStrictModeVisualOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         } else if (preference == mPointerLocation) {
             writePointerLocationOptions();
         } else if (preference == mShowTouches) {
@@ -1330,14 +1330,14 @@ public class DevelopmentSettings extends PreferenceFragment
             writeDisableOverlaysOption();
         } else if (preference == mShowCpuUsage) {
             writeCpuUsageOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         } else if (preference == mImmediatelyDestroyActivities) {
             writeImmediatelyDestroyActivitiesOptions();
         } else if (preference == mShowAllANRs) {
             writeShowAllANRsOptions();
         } else if (preference == mForceHardwareUi) {
             writeHardwareUiOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         } else if (preference == mForceMsaa) {
             writeMsaaOptions();
         } else if (preference == mTrackFrameTime) {
@@ -1350,13 +1350,13 @@ public class DevelopmentSettings extends PreferenceFragment
             writeShowHwOverdrawOptions();
         } else if (preference == mDebugLayout) {
             writeDebugLayoutOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         } else if (preference == mAdvancedReboot) {
             writeAdvancedRebootOptions();
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         }
 
         return false;
@@ -1378,7 +1378,7 @@ public class DevelopmentSettings extends PreferenceFragment
         } else if (preference == mAnimatorDurationScale) {
             writeAnimationScaleOption(2, mAnimatorDurationScale, newValue);
             return true;
-/* **** GANBAROU ADDITIONS STARTS ****
+/* **** GANBAROU_PATCH_START ****
         } else if (preference == mOverlayDisplayDevices) {
             writeOverlayDisplayDevicesOptions(newValue);
             return true;
@@ -1388,7 +1388,7 @@ public class DevelopmentSettings extends PreferenceFragment
         } else if (preference == mEnableTracesPref) {
             writeEnableTracesOptions();
             return true;
-**** GANBAROU ADDITIONS END **** */
+**** GANBAROU_PATCH_END **** */
         } else if (preference == mAppProcessLimit) {
             writeAppProcessLimitOptions(newValue);
             return true;

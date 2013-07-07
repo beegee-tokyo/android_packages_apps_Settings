@@ -31,15 +31,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-// **** GANBAROU ADDITIONS STARTS ****
-// TabletUI patch Original Patch by Scott Brady <sbradymobile@gmail.com>
-import android.content.ContentResolver;
-import android.content.Context;
-import android.os.ServiceManager;
-import android.view.Display;
-import android.view.IWindowManager;
-// **** GANBAROU ADDITIONS END ****
-
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
@@ -49,14 +40,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
-
-// **** GANBAROU ADDITIONS STARTS ****
-// TabletUI patch Original Patch by Scott Brady <sbradymobile@gmail.com>
-    private static final String KEY_TABLET_UI = "tablet_ui";
-    private CheckBoxPreference mTabletUI;
-    private ContentResolver mContentResolver;
-    private Context mContext;
-// **** GANBAROU ADDITIONS END ****
 
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
@@ -125,13 +108,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
 
-// **** GANBAROU ADDITIONS STARTS ****
-// TabletUI patch Original Patch by Scott Brady <sbradymobile@gmail.com>
-        mTabletUI = (CheckBoxPreference) findPreference(KEY_TABLET_UI);
-        mTabletUI.setChecked(Settings.System.getInt(mContentResolver,
-            Settings.System.TABLET_MODE, 0) == 1);
-// **** GANBAROU ADDITIONS END ****
-
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
         if (Utils.isWifiOnly(getActivity())) {
@@ -189,21 +165,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
             return true;
         }
-// **** GANBAROU ADDITIONS STARTS ****
-// TabletUI patch Original Patch by Scott Brady <sbradymobile@gmail.com>
-         else if (preference == mTabletUI) {
-             value = mTabletUI.isChecked();
-             Settings.System.putInt(getContentResolver(), Settings.System.TABLET_MODE,
-                 value ? 1 : 0);
-             IWindowManager wm = IWindowManager.Stub.asInterface(ServiceManager.checkService(
-                 Context.WINDOW_SERVICE));
-             try {
-                 wm.clearForcedDisplaySize(Display.DEFAULT_DISPLAY);
-                 } catch (Exception e) {
-             }
-             return true;
-        }
-// **** GANBAROU ADDITIONS END ****
         return false;
     }
 }
