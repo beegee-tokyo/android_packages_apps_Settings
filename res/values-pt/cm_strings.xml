@@ -39,16 +39,16 @@
     <string name="start_time_title">Início</string>
     <string name="end_time_title">Fim</string>
     <string name="device_hostname">Nome do dispositivo</string>
-    <string name="mod_version">Versão CyanogenMod</string>
+    <string name="mod_version">Versão Ganbarou</string>
     <string name="mod_version_default">Desconhecida</string>
     <string name="build_date">Data de compilação</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memória</string>
-    <string name="anonymous_statistics_title">Estatísticas CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Ajude a melhorar o CyanogenMod optando por enviar estatísticas anonimas</string>
+    <string name="anonymous_statistics_title">Estatísticas Ganbarou</string>
+    <string name="anonymous_statistics_summary">Ajude a melhorar o Ganbarou optando por enviar estatísticas anonimas</string>
     <string name="anonymous_statistics_warning_title">Sobre</string>
-    <string name="anonymous_statistics_warning">Optar por enviar estatísticas anonimas do CyanogenMod permitirá que dados não-pessoais sejam enviados para os
-        desenvolvedores do CyanogenMod para rastrear instalações únicas em dispositivos. As informações enviadas incluem um identificador unico,
+    <string name="anonymous_statistics_warning">Optar por enviar estatísticas anonimas do Ganbarou permitirá que dados não-pessoais sejam enviados para os
+        desenvolvedores do Ganbarou para rastrear instalações únicas em dispositivos. As informações enviadas incluem um identificador unico,
         que não compromete sua privacidade ou dados pessoais. Os dados são enviados durante cada inicialização.\n\nPara um exemplo de dados que são enviados, toque em Pré-visualizar Dados.</string>
     <string name="enable_reporting_title">Habilitar relatório</string>
     <string name="preview_data_title">Pré-visualizar dados</string>
@@ -319,7 +319,7 @@
     <string name="power_menu_expanded_desktop">Área de trabalho expandida</string>
     <string name="power_menu_profiles_title">Alternador de perfil</string>
     <string name="power_menu_airplane_title">Modo avião</string>
-    <string name="cmupdate_settings_title">Atualizações CyanogenMod</string>
+    <string name="cmupdate_settings_title">Atualizações Ganbarou</string>
     <string name="cmupdate_settings_summary">Verificar, visualizar ou instalar atualizações disponíveis</string>
     <string name="advanced_settings_title">Avançado</string>
     <string name="ime_switcher_notify">Notificação do método de entrada</string>

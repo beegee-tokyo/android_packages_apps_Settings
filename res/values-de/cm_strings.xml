@@ -37,13 +37,13 @@
     <string name="notification_vibrate_during_calls_title">Während Anruf vibrieren</string>
     <string name="notification_vibrate_during_calls_summary">Bei eingehenden Benachrichtigungen während eines Anrufs sanft vibrieren</string>
     <string name="device_hostname">Hostname des Geräts</string>
-    <string name="mod_version">CyanogenMod-Version</string>
+    <string name="mod_version">Ganbarou-Version</string>
     <string name="mod_version_default">Unbekannt</string>
     <string name="build_date">Build-Datum</string>
     <string name="cpu_info">Prozessor</string>
     <string name="mem_info">Arbeitsspeicher</string>
     <string name="anonymous_statistics_title">Anonyme Statistiken</string>
-    <string name="anonymous_statistics_summary">Durch anonyme Gerätestatistiken dabei helfen, CyanogenMod zu verbessern</string>
+    <string name="anonymous_statistics_summary">Durch anonyme Gerätestatistiken dabei helfen, Ganbarou zu verbessern</string>
     <string name="anonymous_statistics_warning_title">ACHTUNG</string>
     <string name="anonymous_statistics_warning">Die bei jedem Neustart des Gerätes übermittelten Daten beeinträchtigen nicht die Privatsphäre, da sie keinerlei Rückschlüsse auf den Benutzer zulassen.\n\nFür ein Beispiel der gesendeten Daten bitte auf Vorschau klicken.</string>
     <string name="enable_reporting_title">Berichte einschalten</string>
@@ -346,7 +346,7 @@
     <string name="power_menu_airplane_title">Flugmodus</string>
     <string name="power_menu_user_title">Benutzer</string>
     <string name="power_menu_sound_title">Lautlos</string>
-    <string name="cmupdate_settings_title">CyanogenMod-Updates</string>
+    <string name="cmupdate_settings_title">Ganbarou-Updates</string>
     <string name="cmupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
     <string name="advanced_settings_title">Erweitert</string>
     <string name="ime_switcher_notify">Auswahlbenachrichtigung</string>

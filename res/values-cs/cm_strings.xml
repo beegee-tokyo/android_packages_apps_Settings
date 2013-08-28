@@ -74,14 +74,14 @@
 
     <string name="device_hostname">Hostitelské jméno zařízení</string>
 
-    <string name="mod_version">Verze CyanogenModu</string>
+    <string name="mod_version">Verze Ganbarou</string>
     <string name="mod_version_default">Neznámá</string>
     <string name="build_date">Datum sestavení</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Paměť</string>
 
-    <string name="anonymous_statistics_title">CyanogenMod statistiky</string>
-    <string name="anonymous_statistics_summary">Pomozte ke zlepšení CyanogenModu pomocí posíláním anonymních statistik</string>
+    <string name="anonymous_statistics_title">Ganbarou statistiky</string>
+    <string name="anonymous_statistics_summary">Pomozte ke zlepšení Ganbarou pomocí posíláním anonymních statistik</string>
     <string name="anonymous_statistics_warning_title">Info</string>
     <string name="anonymous_statistics_warning">Pokud povolíte zasílání anonymních statistik z vašeho zařízení, budou se odesílat data bez vašich osobních údajů k vývojářům. Data jsou odesílána během startu zařízení.\n\nMůžete se také podívat do náhledu odesílaných dat.</string>
     <string name="enable_reporting_title">Povolit odesílání</string>
@@ -439,7 +439,7 @@
     <string name="power_menu_user_title">Přepínač uživatelů</string>
     <string name="power_menu_sound_title">Panel hlasitosti</string>
 
-    <string name="cmupdate_settings_title">Aktualizace CyanogenModu</string>
+    <string name="cmupdate_settings_title">Aktualizace Ganbarou</string>
     <string name="cmupdate_settings_summary">Zkontrolujte, zda jsou k dispozici aktualizace</string>
 
     <string name="advanced_settings_title">Rozšířené</string>

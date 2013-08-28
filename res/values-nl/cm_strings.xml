@@ -61,15 +61,15 @@
     <string name="notification_convert_sound_to_vibration_title">Trillen bij melding</string>
     <string name="notification_convert_sound_to_vibration_summary">Trillen bij melding in trilstand, ongeacht de app-instelling</string>
     <string name="device_hostname">Hostnaam apparaat</string>
-    <string name="mod_version">CyanogenMod-versie</string>
+    <string name="mod_version">Ganbarou-versie</string>
     <string name="mod_version_default">Onbekend</string>
     <string name="build_date">Build-datum</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Geheugen</string>
     <string name="anonymous_statistics_title">Statistieken</string>
-    <string name="anonymous_statistics_summary">Help CyanogenMod te verbeteren door anonieme statistieken te verzenden</string>
+    <string name="anonymous_statistics_summary">Help Ganbarou te verbeteren door anonieme statistieken te verzenden</string>
     <string name="anonymous_statistics_warning_title">Over</string>
-    <string name="anonymous_statistics_warning">Door statistieken verzenden toe te staan worden tijdens het opstarten anonieme gegevens naar de ontwikkelaars van CyanogenMod verzonden om unieke installaties te kunnen volgen. In de gegevens zit een uniek id-nummer verwerkt, dat uw privacy niet schendt.\n\nOm een voorbeeld te zien, tikt u op \'Voorbeeld van gegevens\'.</string>
+    <string name="anonymous_statistics_warning">Door statistieken verzenden toe te staan worden tijdens het opstarten anonieme gegevens naar de ontwikkelaars van Ganbarou verzonden om unieke installaties te kunnen volgen. In de gegevens zit een uniek id-nummer verwerkt, dat uw privacy niet schendt.\n\nOm een voorbeeld te zien, tikt u op \'Voorbeeld van gegevens\'.</string>
     <string name="enable_reporting_title">Statistieken verzenden</string>
     <string name="preview_data_title">Voorbeeld van gegevens</string>
     <string name="view_stats_title">Statistieken tonen</string>
@@ -377,7 +377,7 @@ Let op:\nAangezien het beginvolume hoger is ingesteld dan het beltoonvolume, wor
     <string name="power_menu_airplane_title">Vliegmodus</string>
     <string name="power_menu_user_title">Gebruiker wisselen</string>
     <string name="power_menu_sound_title">Geluidspaneel</string>
-    <string name="cmupdate_settings_title">CyanogenMod-updates</string>
+    <string name="cmupdate_settings_title">Ganbarou-updates</string>
     <string name="cmupdate_settings_summary">Controleren op updates</string>
     <string name="advanced_settings_title">Geavanceerd</string>
     <string name="ime_switcher_notify">Invoermethodemelding</string>
