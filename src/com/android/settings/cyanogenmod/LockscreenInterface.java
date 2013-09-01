@@ -295,11 +295,25 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                     Configuration.ORIENTATION_PORTRAIT;
 
             int width = display.getWidth();
-            int height = display.getHeight() - titleBarHeight;
+// **** GANBAROU_PATCH_START ****
+            // small patch to get the correct crop selection for the lockscreen wallpaper
+            // 1) don't look for portrait/landscape
+            // 2) take whole display size
 
-            intent.putExtra("aspectX", isPortrait ? width : height);
-            intent.putExtra("aspectY", isPortrait ? height : width);
+            // int height = display.getHeight() - titleBarHeight;
 
+            // intent.putExtra("aspectX", isPortrait ? width : height);
+            // intent.putExtra("aspectY", isPortrait ? height : width);
+// **** GANBAROU_PATCH_END ****
+
+// **** GANBAROU_PATCH_START ****
+            int height = display.getHeight();
+            intent.putExtra("outputX",         width);
+            intent.putExtra("outputY",         height);
+            intent.putExtra("aspectX",         width);
+            intent.putExtra("aspectY",         height);
+            intent.putExtra("noFaceDetection", true);
+// **** GANBAROU_PATCH_END ****
             try {
                 mWallpaperTemporary.createNewFile();
                 mWallpaperTemporary.setWritable(true, false);

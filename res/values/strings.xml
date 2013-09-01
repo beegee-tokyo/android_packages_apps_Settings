@@ -4534,4 +4534,14 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
+<!-- **** GANBAROU_PATCH_START **** -->
+    <!-- Navigation bar position dialog title -->
+    <string name="nav_pos_dialog_title">Navigation bar position</string>
+    <!-- Navigation bar position option -->
+    <string name="nav_pos_option_title">Select your prefered navigation bar position</string>
+    <!-- Navigation bar position default -->
+    <string name="nav_pos_default">center</string>
+    <!-- Navigation bar help title -->
+    <string name="navigation_bar_help_title">Navigation bar help</string>
+<!-- **** GANBAROU_PATCH_END **** -->
 </resources>

@@ -1104,6 +1104,7 @@
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
         <!-- Anonymous Statistics -->
+<!-- **** GANBAROU_PATCH_START ****
         <receiver android:name=".cmstats.ReportingServiceManager"
             android:enabled="true"
             android:exported="false"
@@ -1119,6 +1120,7 @@
             android:exported="false"
             android:name=".cmstats.ReportingService">
         </service>
+**** GANBAROU_PATCH_END **** -->
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.Status"

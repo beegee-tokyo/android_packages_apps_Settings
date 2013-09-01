@@ -916,4 +916,17 @@
         <!-- Always allow app to send to premium SMS short code. -->
         <item>Always allow</item>
     </string-array>
+<!-- **** GANBAROU_PATCH_START **** -->
+    <!-- There is a setting to control the position of the navigation bar if tablet_ui is not active. -->
+    <string-array name="nav_pos_values" translatable="false">
+        <item>left</item>
+        <item>center</item>
+        <item>right</item>
+    </string-array>
+    <string-array name="nav_pos_retval" translatable="false">
+        <item>left</item>
+        <item>center</item>
+        <item>right</item>
+    </string-array>
+<!-- **** GANBAROU_PATCH_END **** -->
 </resources>

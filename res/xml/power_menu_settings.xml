@@ -24,25 +24,29 @@
         android:title="@string/power_menu_reboot_title"
         android:defaultValue="true" />
 
+<!-- **** GANBAROU_PATCH_START **** -->
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_screenshot_enabled"
         android:title="@string/power_menu_screenshot_title"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_expanded_desktop_enabled"
         android:title="@string/power_menu_expanded_desktop"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
+<!-- **** GANBAROU_PATCH_END **** -->
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_profiles_enabled"
         android:title="@string/power_menu_profiles_title"
         android:defaultValue="true" />
 
+<!-- **** GANBAROU_PATCH_START **** -->
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_airplane_enabled"
         android:title="@string/power_menu_airplane_title"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
+<!-- **** GANBAROU_PATCH_END **** -->
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="power_menu_user_enabled"

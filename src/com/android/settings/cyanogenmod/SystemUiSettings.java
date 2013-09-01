@@ -26,6 +26,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.Slog;
 import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
@@ -44,12 +45,23 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
+    // **** GANBAROU_PATCH_START ****
+    private static final String KEY_NAV_BAR_POS = "nav_position";
+    ListPreference mNavPos;
+    // **** GANBAROU_PATCH_END ****
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // **** GANBAROU_PATCH_START ****
+        // Set listener for Navigation Bar Position ListPreference
+        mNavPos = (ListPreference) prefScreen.findPreference(KEY_NAV_BAR_POS);
+        mNavPos.setOnPreferenceChangeListener(this);
+        // **** GANBAROU_PATCH_END ****
 
         mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
 
@@ -102,7 +114,19 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             updateExpandedDesktop(value ? 2 : 0);
             return true;
         }
-
+        // **** GANBAROU_PATCH_START ****
+        if (preference == mNavPos) {
+Slog.d("NavBarPos", "mNavPos has changed to " + objValue.toString());
+            int mNavPosSel = 2;
+            if (objValue.toString().equals("left")) {
+                mNavPosSel = 0;
+            } else if (objValue.toString().equals("right")) {
+                mNavPosSel = 1;
+            }
+            Settings.System.putInt(getContentResolver(), Settings.System.NAV_BAR_POS, mNavPosSel);
+            return true;
+        }
+        // **** GANBAROU_PATCH_ENDS ****
         return false;
     }
 
