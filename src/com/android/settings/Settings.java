@@ -161,6 +161,7 @@ public class Settings extends PreferenceActivity
         mAuthenticatorHelper.onAccountsUpdated(this, null);
 
 // **** GANBAROU_PATCH_START ****
+// DevelopmentSettings are always enabled
         getSharedPreferences(DevelopmentSettings.PREF_FILE, Context.MODE_PRIVATE).edit()
                     .putBoolean(DevelopmentSettings.PREF_SHOW, true)
                     .apply();

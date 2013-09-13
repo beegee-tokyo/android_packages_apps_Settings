@@ -56,7 +56,7 @@
     <string name="notification_vibrate_during_calls_title">Vibra durant la trucada</string>
     <string name="notification_vibrate_during_calls_summary">Les notificacions entrants vibraran lleugerament durant les trucades</string>
     <string name="device_hostname">Hostname del dipositiu</string>
-    <string name="mod_version">CyanogenMod versió</string>
+    <string name="mod_version">Ganbarou versió</string>
     <string name="mod_version_default">Desconegut</string>
     <string name="build_date">Data d\'elaboració</string>
     <string name="cpu_info">CPU</string>
