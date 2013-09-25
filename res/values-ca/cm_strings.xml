@@ -61,10 +61,10 @@
     <string name="build_date">Data d\'elaboració</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memòria</string>
-    <string name="anonymous_statistics_title">Estadístiques CyanogenMod</string>
-    <string name="anonymous_statistics_summary">Ajuda a fer millor CyanogenMod optant a transmetre estadístiques anònimes</string>
+    <string name="anonymous_statistics_title">Estadístiques Ganbarou</string>
+    <string name="anonymous_statistics_summary">Ajuda a fer millor Ganbarou optant a transmetre estadístiques anònimes</string>
     <string name="anonymous_statistics_warning_title">Quant a</string>
-    <string name="anonymous_statistics_warning">Optant a les estadístiques de CyanogenMod permetrà que dades no-personals siguin transmeses als desenvolupadors de CyanogenMod per rastrejar les intal·lacions individuals a través dels dispositius. La informació transmesa inclou un identificador únic, que no compromet la privacitat o dades personals. Les dades son transmeses durant cada arrancada.\n\nPer un exemple de les dades transmeses, pica a vista prèvia de Dades.</string>
+    <string name="anonymous_statistics_warning">Optant a les estadístiques de Ganbarou permetrà que dades no-personals siguin transmeses als desenvolupadors de Ganbarou per rastrejar les intal·lacions individuals a través dels dispositius. La informació transmesa inclou un identificador únic, que no compromet la privacitat o dades personals. Les dades son transmeses durant cada arrancada.\n\nPer un exemple de les dades transmeses, pica a vista prèvia de Dades.</string>
     <string name="enable_reporting_title">Activa informes</string>
     <string name="preview_data_title">Vista prèvia de Dades</string>
     <string name="view_stats_title">Mostra estad.</string>
