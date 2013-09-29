@@ -33,6 +33,10 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+/**** GANBAROU_PATCH_START ****/
+import android.util.Slog;
+/**** GANBAROU_PATCH_END ****/
+
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_CLOCK_CATEGORY = "category_status_bar_clock";
@@ -40,10 +44,16 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
-
+/**** GANBAROU_PATCH_START ****/
+    private static final String STATUS_BAR_NAVI = "status_bar_show_nav";
+/**** GANBAROU_PATCH_END ****/
+    
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarCmSignal;
+/**** GANBAROU_PATCH_START ****/
+    private CheckBoxPreference mStatusBarNav;
+/**** GANBAROU_PATCH_END ****/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +67,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
         mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
+/**** GANBAROU_PATCH_START ****/
+        mStatusBarNav = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NAVI);
+/**** GANBAROU_PATCH_END ****/
 
         if (DateFormat.is24HourFormat(getActivity())) {
             ((PreferenceCategory) prefSet.findPreference(STATUS_BAR_CLOCK_CATEGORY))
@@ -100,9 +113,22 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             generalCategory.removePreference(mStatusBarCmSignal);
         }
 
-        if (Utils.isTablet(getActivity())) {
-            generalCategory.removePreference(statusBarBrightnessControl);
+/** GANBAROU_PATCH_START **/
+/** Enable brightness control by swiping on the status bar for tablets! **/
+//        if (Utils.isTablet(getActivity())) {
+//            generalCategory.removePreference(statusBarBrightnessControl);
+//        }
+
+/** Make navigation in status bar switchable if we are a tablet **/
+        mStatusBarNav.setOnPreferenceChangeListener(this);
+//Slog.d("TopNavBar", "StatusBar - setOnPreferenceChangeListener");
+
+        if (!Utils.isTablet(getActivity())) {
+                generalCategory.removePreference(mStatusBarNav);
+                Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 1);
+//Slog.d("TopNavBar", "StatusBar - disable checkbox");
         }
+/** GANBAROU_PATCH_END **/
     }
 
     @Override
@@ -126,8 +152,22 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
-        }
 
+/** GANBAROU_PATCH_START **/
+        } else if (preference == mStatusBarNav) {
+//Slog.d("TopNavBar", "StatusBar - onPreferenceChange");
+	    if (newValue.toString().equals("true")) {
+		Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 0);
+	    } else {
+		Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 1);
+	    }
+	    int StatusBarNavValue = Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_NAVIGATION, 0);
+//Slog.d("TopNavBar", "StatusBar - StatusBarNavValue = "+StatusBarNavValue);
+//Slog.d("TopNavBar", "StatusBar - newValue = "+newValue);
+	    return true;
+/** GANBAROU_PATCH_END **/
+        }
         return false;
     }
 }

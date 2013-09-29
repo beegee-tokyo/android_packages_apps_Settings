@@ -23,5 +23,9 @@
     <string name="nav_pos_default">center</string>
     <!-- Navigation bar help title -->
     <string name="navigation_bar_help_title">Navigation bar help</string>
+    <!-- Enable navigation bar in status bar dialog title -->
+    <string name="status_bar_show_nav_title">Enable Navigation in status bar</string>
+    <!-- Enable navigation bar in status bar checkbox-->
+    <string name="status_bar_show_nav_summary">Only when extended desktop is active</string>
 <!-- **** GANBAROU_PATCH_END **** -->
 </resources>
