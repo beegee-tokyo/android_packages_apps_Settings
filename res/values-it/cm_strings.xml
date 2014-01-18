@@ -404,7 +404,11 @@
     <string name="power_menu_airplane_title">Modalità aereo</string>
     <string name="power_menu_user_title">Cambia utente</string>
     <string name="power_menu_sound_title">Pannello suoni</string>
+<<<<<<< HEAD
     <string name="cmupdate_settings_title">Aggiornamento Ganbarou</string>
+=======
+    <string name="cmupdate_settings_title">Aggiornamento CyanogenMod</string>
+>>>>>>> upstream/cm-10.2
     <string name="cmupdate_settings_summary">Controlla, visualizza e installa gli aggiornamenti disponibili</string>
     <string name="advanced_settings_title">Avanzate</string>
     <string name="ime_switcher_notify">Notifica metodo inserimento</string>
