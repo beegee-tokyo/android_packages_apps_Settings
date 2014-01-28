@@ -43,6 +43,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
@@ -239,6 +240,7 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
             | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
             | StatusBarManager.DISABLE_SYSTEM_INFO
             | StatusBarManager.DISABLE_HOME
+            | StatusBarManager.DISABLE_SEARCH
             | StatusBarManager.DISABLE_RECENT;
 
     /** @return whether or not this Activity was started for debugging the UI only. */
@@ -556,6 +558,9 @@ public class CryptKeeper extends Activity implements TextView.OnEditorActionList
         // Notify the user in 120 seconds that we are waiting for him to enter the password.
         mHandler.removeMessages(MESSAGE_NOTIFY);
         mHandler.sendEmptyMessageDelayed(MESSAGE_NOTIFY, 120 * 1000);
+
+        // Dismiss keyguard while this screen is showing.
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
     }
 
     /**

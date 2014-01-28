@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi region code. -->
     <string-array name="wifi_countrycode_entries">
         <item>United States</item>
@@ -44,21 +44,26 @@
         <item>BR</item>
     </string-array>
 
-    <!-- Volume Overlay options. -->
-    <string-array name="volume_overlay_entries">
-        <item>Single</item>
-        <item>Expandable</item>
-        <item>Expanded</item>
-        <item>None</item>
+    <!-- Ascending ringtone increase intervals -->
+    <string-array name="increasing_ring_interval_entries" translatable="false">
+        <item>@string/increasing_ring_interval_eachring</item>
+        <item>@string/increasing_ring_interval_half_second</item>
+        <item>@string/increasing_ring_interval_1second</item>
+        <item>@string/increasing_ring_interval_2seconds</item>
+        <item>@string/increasing_ring_interval_3seconds</item>
+        <item>@string/increasing_ring_interval_5seconds</item>
+        <item>@string/increasing_ring_interval_10seconds</item>
     </string-array>
 
-    <!-- Values for Volume Overlay. Do not translate. -->
-    <string-array name="volume_overlay_values" translatable="false">
+    <integer-array name="increasing_ring_interval_values" translatable="false">
         <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
+    </integer-array>
 
     <!-- Ring mode options. -->
     <string-array name="ring_mode_entries" translatable="false">
@@ -72,36 +77,6 @@
         <item>normal</item>
         <item>vibrate</item>
         <item>mute</item>
-    </string-array>
-
-    <!-- Arrays for root access capability -->
-    <string-array name="root_access_entries" translatable="false">
-        <item>@string/root_access_none</item>
-        <item>@string/root_access_apps</item>
-        <item>@string/root_access_adb</item>
-        <item>@string/root_access_all</item>
-    </string-array>
-
-    <string-array name="root_access_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <!-- Performance settings -->
-    <string-array name="pref_zram_size_entries">
-        <item>Disabled</item>
-        <item>10%</item>
-        <item>18% (default)</item>
-        <item>26%</item>
-    </string-array>
-
-    <string-array name="pref_zram_size_values" translatable="false">
-        <item>0</item>
-        <item>10</item>
-        <item>18</item>
-        <item>26</item>
     </string-array>
 
     <string-array name="lockscreen_delay_entries" translatable="false">
@@ -128,6 +103,18 @@
         <item>300000</item>
         <item>600000</item>
         <item>1800000</item>
+    </string-array>
+
+    <string-array name="lockscreen_battery_status_entries" translatable="false">
+        <item>@string/lockscreen_battery_status_charging</item>
+        <item>@string/lockscreen_battery_status_alwayson</item>
+        <item>@string/lockscreen_battery_status_alwaysoff</item>
+    </string-array>
+
+    <string-array name="lockscreen_battery_status_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="lockscreen_icon_picker_labels" translatable="false">
@@ -157,29 +144,47 @@
     </string-array>
 
     <string-array name="lockscreen_icon_picker_icons" translatable="false">
-        <item>@*android:drawable/ic_lockscreen_alarm_normal</item>
-        <item>@*android:drawable/ic_lockscreen_browser_normal</item>
-        <item>@*android:drawable/ic_lockscreen_calendar_normal</item>
-        <item>@*android:drawable/ic_lockscreen_camera_normal</item>
-        <item>@*android:drawable/ic_lockscreen_chrome_normal</item>
-        <item>@*android:drawable/ic_lockscreen_contacts_normal</item>
-        <item>@*android:drawable/ic_lockscreen_email_normal</item>
-        <item>@*android:drawable/ic_lockscreen_email2_normal</item>
-        <item>@*android:drawable/ic_lockscreen_facebook_normal</item>
-        <item>@*android:drawable/ic_lockscreen_gallery_normal</item>
-        <item>@*android:drawable/ic_lockscreen_google_small_normal</item>
-        <item>@*android:drawable/ic_lockscreen_gplus_normal</item>
-        <item>@*android:drawable/ic_lockscreen_gtalk_normal</item>
-        <item>@*android:drawable/ic_lockscreen_maps_normal</item>
-        <item>@*android:drawable/ic_lockscreen_sms_normal</item>
-        <item>@*android:drawable/ic_lockscreen_movie_normal</item>
-        <item>@*android:drawable/ic_lockscreen_music_normal</item>
-        <item>@*android:drawable/ic_lockscreen_nav_normal</item>
-        <item>@*android:drawable/ic_lockscreen_phone_normal</item>
-        <item>@*android:drawable/ic_lockscreen_podcast_normal</item>
-        <item>@*android:drawable/ic_lockscreen_rss_normal</item>
-        <item>@*android:drawable/ic_lockscreen_google_normal</item>
-        <item>@*android:drawable/ic_lockscreen_twitter_normal</item>
+        <item>ic_lockscreen_alarm_normal</item>
+        <item>ic_lockscreen_browser_normal</item>
+        <item>ic_lockscreen_calendar_normal</item>
+        <item>ic_lockscreen_camera_normal</item>
+        <item>ic_lockscreen_chrome_normal</item>
+        <item>ic_lockscreen_contacts_normal</item>
+        <item>ic_lockscreen_email_normal</item>
+        <item>ic_lockscreen_email2_normal</item>
+        <item>ic_lockscreen_facebook_normal</item>
+        <item>ic_lockscreen_gallery_normal</item>
+        <item>ic_lockscreen_google_small_normal</item>
+        <item>ic_lockscreen_gplus_normal</item>
+        <item>ic_lockscreen_gtalk_normal</item>
+        <item>ic_lockscreen_maps_normal</item>
+        <item>ic_lockscreen_sms_normal</item>
+        <item>ic_lockscreen_movie_normal</item>
+        <item>ic_lockscreen_music_normal</item>
+        <item>ic_lockscreen_nav_normal</item>
+        <item>ic_lockscreen_phone_normal</item>
+        <item>ic_lockscreen_podcast_normal</item>
+        <item>ic_lockscreen_rss_normal</item>
+        <item>ic_lockscreen_google_normal</item>
+        <item>ic_lockscreen_twitter_normal</item>
+    </string-array>
+
+    <string-array name="lockscreen_long_key_press_entries" translatable="false">
+        <item>@string/lockscreen_buttons_no_action</item>
+        <item>@string/lockscreen_buttons_next</item>
+        <item>@string/lockscreen_buttons_previous</item>
+        <item>@string/lockscreen_buttons_playpause</item>
+        <item>@string/lockscreen_buttons_toggle_sound</item>
+        <item>@string/lockscreen_buttons_sleep</item>
+    </string-array>
+
+    <string-array name="lockscreen_long_key_press_values" translatable="false">
+        <item></item>
+        <item>NEXT</item>
+        <item>PREVIOUS</item>
+        <item>PLAYPAUSE</item>
+        <item>SOUND</item>
+        <item>SLEEP</item>
     </string-array>
 
     <!-- Profile mode options. -->
@@ -251,6 +256,22 @@
         <item>2</item>
     </string-array>
 
+    <!-- Volume Overlay options. -->
+    <string-array name="volume_overlay_entries" translatable="false">
+        <item>@string/volume_overlay_single</item>
+        <item>@string/volume_overlay_expandable</item>
+        <item>@string/volume_overlay_expanded</item>
+        <item>@string/volume_overlay_none</item>
+    </string-array>
+
+    <!-- Values for Volume Overlay. Do not translate. -->
+    <string-array name="volume_overlay_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <!-- Values for the notification light pulse spinners -->
     <string-array name="notification_pulse_length_entries" translatable="false">
         <item>@string/pulse_length_always_on</item>
@@ -298,26 +319,6 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="increasing_ring_interval_entries" translatable="false">
-        <item>@string/increasing_ring_interval_eachring</item>
-        <item>@string/increasing_ring_interval_half_second</item>
-        <item>@string/increasing_ring_interval_1second</item>
-        <item>@string/increasing_ring_interval_2seconds</item>
-        <item>@string/increasing_ring_interval_3seconds</item>
-        <item>@string/increasing_ring_interval_5seconds</item>
-        <item>@string/increasing_ring_interval_10seconds</item>
-    </string-array>
-
-    <integer-array name="increasing_ring_interval_values" translatable="false">
-        <item>0</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>5000</item>
-        <item>10000</item>
-    </integer-array>
-
     <string-array name="entries_screentimeout_widget">
         <item>15s | 1m | 5m</item>
         <item>30s | 2m | 5m</item>
@@ -342,144 +343,6 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="entries_flash_widget">
-        <item>Normal</item>
-        <item>High</item>
-    </string-array>
-
-    <string-array name="values_flash_widget" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-    <string-array name="haptic_feedback_entries">
-        <item>Use global setting</item>
-        <item>On</item>
-        <item>Off</item>
-    </string-array>
-
-    <string-array name="haptic_feedback_values" translatable="false">
-        <item>2</item>
-        <item>1</item>
-        <item>0</item>
-    </string-array>
-
-    <string-array name="entries_status_bar_am_pm">
-        <item>Normal</item>
-        <item>Small</item>
-        <item>None</item>
-    </string-array>
-
-    <string-array name="values_status_bar_am_pm" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="entries_status_bar_battery" translatable="false">
-        <item>@string/status_bar_style_icon</item>
-        <item>@string/status_bar_battery_status_percentage</item>
-        <item>@string/status_bar_battery_status_circle</item>
-        <item>@string/status_bar_battery_status_circle_percentage</item>
-        <item>@string/status_bar_style_hidden</item>
-    </string-array>
-
-    <string-array name="values_status_bar_battery" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
-    <string-array name="entries_status_bar_signal" translatable="false">
-        <item>@string/status_bar_style_icon</item>
-        <item>@string/status_bar_signal_text_show_text</item>
-        <item>@string/status_bar_style_hidden</item>
-    </string-array>
-
-    <string-array name="values_status_bar_signal" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="hardware_keys_action_entries" translatable="false">
-        <item>@string/hardware_keys_action_nothing</item>
-        <item>@string/hardware_keys_action_menu</item>
-        <item>@string/hardware_keys_action_app_switch</item>
-        <item>@string/hardware_keys_action_search</item>
-        <item>@string/hardware_keys_action_voice_search</item>
-        <item>@string/hardware_keys_action_in_app_search</item>
-        <item>@string/hardware_keys_action_launch_camera</item>
-    </string-array>
-
-    <string-array name="hardware_keys_action_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-
-    <string-array name="lockscreen_long_key_press_entries" translatable="false">
-        <item>@string/lockscreen_buttons_no_action</item>
-        <item>@string/lockscreen_buttons_next</item>
-        <item>@string/lockscreen_buttons_previous</item>
-        <item>@string/lockscreen_buttons_playpause</item>
-        <item>@string/lockscreen_buttons_toggle_sound</item>
-        <item>@string/lockscreen_buttons_sleep</item>
-    </string-array>
-
-    <string-array name="lockscreen_long_key_press_values" translatable="false">
-        <item></item>
-        <item>NEXT</item>
-        <item>PREVIOUS</item>
-        <item>PLAYPAUSE</item>
-        <item>SOUND</item>
-        <item>SLEEP</item>
-    </string-array>
-
-    <!-- Volume key cursor control -->
-    <string-array name="volume_key_cursor_control_entries" translatable="false">
-        <item>@string/volume_key_cursor_control_off</item>
-        <item>@string/volume_key_cursor_control_on</item>
-        <item>@string/volume_key_cursor_control_on_reverse</item>
-    </string-array>
-
-    <string-array name="volume_key_cursor_control_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="lockscreen_battery_status_entries" translatable="false">
-        <item>@string/lockscreen_battery_status_charging</item>
-        <item>@string/lockscreen_battery_status_alwayson</item>
-        <item>@string/lockscreen_battery_status_alwaysoff</item>
-    </string-array>
-
-    <string-array name="lockscreen_battery_status_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <!-- Expanded desktop -->
-    <string-array name="expanded_desktop_entries" translatable="false">
-        <item>@string/expanded_desktop_disabled</item>
-        <item>@string/expanded_desktop_status_bar</item>
-        <item>@string/expanded_desktop_no_status_bar</item>
-    </string-array>
-
-    <string-array name="expanded_desktop_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Quick pulldown -->
     <string-array name="quick_pulldown_entries" translatable="false">
         <item>@string/quick_pulldown_off</item>
@@ -493,69 +356,6 @@
         <item>2</item>
     </string-array>
 
-    <!-- Sms security limit -->
-    <string-array name="sms_security_check_limit_entries" translatable="false">
-        <item>@string/sms_security_check_limit_default</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-        <item>500</item>
-        </string-array>
-
-    <string-array name="sms_security_check_limit_values" translatable="false">
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-        <item>500</item>
-        </string-array>
-
-    <!-- Custom lock screen background-->
-    <string-array name="lockscreen_background_entries" translatable="false">
-        <item>@string/lockscreen_background_color_fill</item>
-        <item>@string/lockscreen_background_custom_image</item>
-        <item>@string/lockscreen_background_default_wallpaper</item>
-    </string-array>
-
-    <string-array name="lockscreen_background_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <!-- Pie controls -->
-    <string-array name="pie_control_sensitivity_entries" translatable="false">
-        <item>@string/pie_control_sensitivity_low</item>
-        <item>@string/pie_control_sensitivity_medium</item>
-        <item>@string/pie_control_sensitivity_high</item>
-        <item>@string/pie_control_sensitivity_very_high</item>
-    </string-array>
-
-    <string-array name="pie_control_sensitivity_values" translatable="false">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
-    <!-- Stylus Gestures -->
-    <string-array name="gestures_entries" translatable="false">
-        <item>@string/gestures_action_empty</item>
-        <item>@string/gestures_action_home</item>
-        <item>@string/gestures_action_back</item>
-        <item>@string/gestures_action_menu</item>
-        <item>@string/gestures_action_search</item>
-        <item>@string/gestures_action_recent</item>
-    </string-array>
-
-    <string-array name="gestures_values" translatable="false">
-        <item>1000</item>
-        <item>1001</item>	
-        <item>1002</item>
-        <item>1003</item>
-        <item>1004</item>
-        <item>1005</item>
-    </string-array>
 
     <!-- Auto-brightness sensitivity -->
     <string-array name="auto_brightness_sensitivity_entries" translatable="false">
@@ -566,7 +366,7 @@
         <item>@string/auto_brightness_sensitivity_veryhigh</item>
     </string-array>
 
-    <integer-array name="auto_brightness_sensitivity_values">
+    <integer-array name="auto_brightness_sensitivity_values" translatable="false">
         <item>150</item>
         <item>125</item>
         <item>100</item>
@@ -593,6 +393,7 @@
         <item>2</item>
     </string-array>
 
+    <!-- Phone blacklist management -->
     <string-array name="blacklist_policy_unknown_entries" translatable="false">
         <item>@string/blacklist_policy_block_calls</item>
         <item>@string/blacklist_policy_block_messages</item>
@@ -616,100 +417,157 @@
     <string-array name="gamma_descriptors" translatable="false">
     </string-array>
 
-    <!-- Performance profiles -->
-    <string-array name="perf_profile_entries" translatable="false">
-        <item>@string/perf_profile_pwrsv</item>
-        <item>@string/perf_profile_bal</item>
-        <item>@string/perf_profile_perf</item>
+    <!-- Arrays for root access capability -->
+    <string-array name="root_access_entries" translatable="false">
+        <item>@string/root_access_none</item>
+        <item>@string/root_access_apps</item>
+        <item>@string/root_access_adb</item>
+        <item>@string/root_access_all</item>
     </string-array>
 
-    <string-array name="perf_profile_values" translatable="false">
+    <string-array name="root_access_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!--- Sms security limit -->
+    <string-array name="sms_security_check_limit_entries" translatable="false">
+        <item>@string/sms_security_check_limit_none</item>
+        <item>5</item>
+        <item>10</item>
+        <item>@string/sms_security_check_limit_default</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+    </string-array>
+
+    <string-array name="sms_security_check_limit_values" translatable="false">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+    </string-array>
+
+    <!-- Hardware key rebinding -->
+    <string-array name="hardware_keys_action_entries" translatable="false">
+        <item>@string/hardware_keys_action_nothing</item>
+        <item>@string/hardware_keys_action_menu</item>
+        <item>@string/hardware_keys_action_app_switch</item>
+        <item>@string/hardware_keys_action_search</item>
+        <item>@string/hardware_keys_action_voice_search</item>
+        <item>@string/hardware_keys_action_in_app_search</item>
+        <item>@string/hardware_keys_action_launch_camera</item>
+    </string-array>
+
+    <string-array name="hardware_keys_action_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- Volume key cursor control -->
+    <string-array name="volbtn_cursor_control_entries" translatable="false">
+        <item>@string/volbtn_cursor_control_off</item>
+        <item>@string/volbtn_cursor_control_on</item>
+        <item>@string/volbtn_cursor_control_on_reverse</item>
+    </string-array>
+
+    <string-array name="volbtn_cursor_control_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
-    <!-- App ops, extension of AOSP app_ops_summaries and app_ops_labels -->
-    <string-array name="app_ops_summaries_cm">
-        <item>coarse location</item>
-        <item>fine location</item>
-        <item>GPS</item>
-        <item>vibrate</item>
-        <item>read contacts</item>
-        <item>modify contacts</item>
-        <item>read call log</item>
-        <item>modify call log</item>
-        <item>read calendar</item>
-        <item>modify calendar</item>
-        <item>wi-fi scan</item>
-        <item>notification</item>
-        <item>cell scan</item>
-        <item>call phone</item>
-        <item>read SMS</item>
-        <item>write SMS</item>
-        <item>receive SMS</item>
-        <item>receive emergency SMS</item>
-        <item>receive MMS</item>
-        <item>receive WAP push</item>
-        <item>send SMS</item>
-        <item>read ICC SMS</item>
-        <item>write ICC SMS</item>
-        <item>modify settings</item>
-        <item>draw on top</item>
-        <item>access notifications</item>
-        <item>camera</item>
-        <item>record audio</item>
-        <item>play audio</item>
-        <item>read clipboard</item>
-        <item>modify clipboard</item>
-        <item>@string/app_ops_summaries_wifi_change</item>
-        <item>@string/app_ops_summaries_bluetooth_change</item>
-        <item>@string/app_ops_summaries_data_change</item>
-        <item>@string/app_ops_summaries_alarm_wakeup</item>
+    <!-- Expanded desktop -->
+    <string-array name="expanded_desktop_entries" translatable="false">
+        <item>@string/expanded_desktop_disabled</item>
+        <item>@string/expanded_desktop_status_bar</item>
+        <item>@string/expanded_desktop_no_status_bar</item>
     </string-array>
 
-    <string-array name="app_ops_labels_cm">
-        <item>Location</item>
-        <item>Location</item>
-        <item>Location</item>
-        <item>Vibrate</item>
-        <item>Read contacts</item>
-        <item>Modify contacts</item>
-        <item>Read call log</item>
-        <item>Modify call log</item>
-        <item>Read calendar</item>
-        <item>Modify calendar</item>
-        <item>Location</item>
-        <item>Post notification</item>
-        <item>Location</item>
-        <item>Call phone</item>
-        <item>Receive SMS/MMS</item>
-        <item>Send SMS/MMS</item>
-        <item>Receive SMS/MMS</item>
-        <item>Receive SMS/MMS</item>
-        <item>Receive SMS/MMS</item>
-        <item>Receive SMS/MMS</item>
-        <item>Send SMS/MMS</item>
-        <item>Receive SMS/MMS</item>
-        <item>Send SMS/MMS</item>
-        <item>Modify settings</item>
-        <item>Draw on top</item>
-        <item>Access notifications</item>
-        <item>Camera</item>
-        <item>Record audio</item>
-        <item>Play audio</item>
-        <item>Read clipboard</item>
-        <item>Modify clipboard</item>
-        <item>@string/app_ops_labels_wifi_change</item>
-        <item>@string/app_ops_labels_bluetooth_change</item>
-        <item>@string/app_ops_labels_data_change</item>
-        <item>@string/app_ops_labels_alarm_wakeup</item>
+    <string-array name="expanded_desktop_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
-    <!-- App ops permissions -->
-    <string-array name="app_ops_permissions">
-        <item>Allowed</item>
-        <item>Denied</item>
-        <item>Always ask</item>
+    <string-array name="entries_status_bar_battery" translatable="false">
+        <item>@string/status_bar_style_icon_portrait</item>
+        <item>@string/status_bar_style_icon_landscape</item>
+        <item>@string/status_bar_style_circle</item>
+        <item>@string/status_bar_style_text</item>
+        <item>@string/status_bar_style_hidden</item>
+    </string-array>
+
+    <string-array name="values_status_bar_battery" translatable="false">
+        <item>0</item>
+        <item>5</item>
+        <item>2</item>
+        <item>6</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="entries_status_bar_signal" translatable="false">
+        <item>@string/status_bar_signal_style_icon</item>
+        <item>@string/status_bar_signal_style_text</item>
+        <item>@string/status_bar_style_hidden</item>
+    </string-array>
+
+    <string-array name="values_status_bar_signal" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Stylus Gestures -->
+    <string-array name="gestures_entries" translatable="false">
+        <item>@string/gestures_action_empty</item>
+        <item>@string/gestures_action_home</item>
+        <item>@string/gestures_action_back</item>
+        <item>@string/gestures_action_menu</item>
+        <item>@string/gestures_action_search</item>
+        <item>@string/gestures_action_recent</item>
+    </string-array>
+
+    <string-array name="gestures_values" translatable="false">
+        <item>1000</item>
+        <item>1001</item>
+        <item>1002</item>
+        <item>1003</item>
+        <item>1004</item>
+        <item>1005</item>
+    </string-array>
+
+    <string-array name="quiet_hours_ringer_entries" translatable="false">
+        <item>@string/quiet_hours_ringer_allow_all</item>
+        <item>@string/quiet_hours_ringer_allow_contacts</item>
+        <item>@string/quiet_hours_ringer_allow_starred</item>
+        <item>@string/quiet_hours_ringer_mute_all</item>
+    </string-array>
+
+    <string-array name="quiet_hours_ringer_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="screen_animation_style_entries" translatable="false">
+        <item>@string/screen_animation_style_electronbeam</item>
+        <item>@string/screen_animation_style_fade</item>
+    </string-array>
+
+    <string-array name="screen_animation_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 </resources>

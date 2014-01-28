@@ -17,7 +17,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/development_settings_title">
 
-<!-- **** GANBAROU_PATCH_START **** 
     <PreferenceScreen
             android:key="development_tools"
             android:title="@string/development_tools_title"
@@ -27,19 +26,16 @@
                 android:targetPackage="com.android.development"
                 android:targetClass="com.android.development.Development" />
     </PreferenceScreen>
-**** GANBAROU_PATCH_END **** -->
 
     <com.android.settings.BugreportPreference
             android:key="bugreport"
             android:title="@*android:string/bugreport_title"
             android:dialogTitle="@*android:string/bugreport_title" />
 
-<!-- **** GANBAROU_PATCH_START **** 
     <CheckBoxPreference
         android:key="advanced_reboot"
         android:title="@string/advanced_reboot_title"
         android:summary="@string/advanced_reboot_summary" />
-**** GANBAROU_PATCH_END **** -->
 
     <PreferenceScreen
             android:key="local_backup_password"
@@ -65,9 +61,15 @@
         android:entryValues="@array/hdcp_checking_values" />
 
     <CheckBoxPreference
-        android:key="enforce_read_external"
-        android:title="@string/enforce_read_external_title"
-        android:summary="@string/enforce_read_external_summary" />
+        android:key="bt_hci_snoop_log"
+        android:title="@string/bt_hci_snoop_log"
+        android:summary="@string/bt_hci_snoop_log_summary"/>
+
+    <PreferenceScreen android:key="proc_stats"
+            android:title="@string/process_stats_summary_title"
+            android:summary="@string/process_stats_summary"
+            android:fragment="com.android.settings.applications.ProcessStatsUi">
+    </PreferenceScreen>
 
     <ListPreference
         android:key="root_access"
@@ -83,9 +85,6 @@
             android:key="enable_adb"
             android:title="@string/enable_adb"
             android:summary="@string/enable_adb_summary"/>
-
-        <Preference android:key="clear_adb_keys"
-                android:title="@string/clear_adb_keys" />
 
         <CheckBoxPreference
             android:key="adb_notify"
@@ -110,6 +109,14 @@
             android:inputType="textNoSuggestions"
             android:persistent="false" />
 
+        <Preference android:key="clear_adb_keys"
+                android:title="@string/clear_adb_keys" />
+
+        <CheckBoxPreference
+            android:key="enable_terminal"
+            android:title="@string/enable_terminal_title"
+            android:summary="@string/enable_terminal_summary" />
+
         <CheckBoxPreference
             android:key="bugreport_in_power"
             android:title="@string/bugreport_in_power"
@@ -121,11 +128,12 @@
             android:summary="@string/allow_mock_location_summary"/>
 
         <CheckBoxPreference
-            android:key="allow_mock_sms"
-            android:title="@string/allow_mock_sms"/>
+            android:key="development_shortcut"
+            android:title="@string/development_shortcut_title"
+            android:summary="@string/development_shortcut_summary" />
 
         <PreferenceScreen android:key="debug_app"
-            android:title="@string/debug_app" />
+                android:title="@string/debug_app" />
 
         <CheckBoxPreference
             android:key="wait_for_debugger"
@@ -137,9 +145,12 @@
             android:title="@string/verify_apps_over_usb_title"
             android:summary="@string/verify_apps_over_usb_summary"/>
 
+        <CheckBoxPreference
+            android:key="wifi_display_certification"
+            android:title="@string/wifi_display_certification"
+            android:summary="@string/wifi_display_certification_summary"/>
     </PreferenceCategory>
 
-<!-- **** GANBAROU_PATCH_START **** 
     <PreferenceCategory android:key="debug_input_category"
             android:title="@string/debug_input_category">
 
@@ -154,7 +165,6 @@
             android:summary="@string/pointer_location_summary"/>
 
     </PreferenceCategory>
-**** GANBAROU_PATCH_END **** -->
 
     <PreferenceCategory android:key="debug_drawing_category"
             android:title="@string/debug_drawing_category">
@@ -164,12 +174,15 @@
             android:title="@string/show_screen_updates"
             android:summary="@string/show_screen_updates_summary"/>
 
-<!-- **** GANBAROU_PATCH_START **** 
         <CheckBoxPreference
             android:key="debug_layout"
             android:title="@string/debug_layout"
             android:summary="@string/debug_layout_summary"/>
-**** GANBAROU_PATCH_END **** -->
+
+        <CheckBoxPreference
+            android:key="force_rtl_layout_all_locales"
+            android:title="@string/force_rtl_layout_all_locales"
+            android:summary="@string/force_rtl_layout_all_locales_summary"/>
 
         <ListPreference
             android:key="window_animation_scale"
@@ -192,14 +205,12 @@
             android:entries="@array/animator_duration_scale_entries"
             android:entryValues="@array/animator_duration_scale_values" />
 
-<!-- **** GANBAROU_PATCH_START **** 
         <ListPreference
             android:key="overlay_display_devices"
             android:title="@string/overlay_display_devices_title"
             android:persistent="false"
             android:entries="@array/overlay_display_devices_entries"
             android:entryValues="@array/overlay_display_devices_values" />
-**** GANBAROU_PATCH_END **** -->
 
     </PreferenceCategory>
 
@@ -221,10 +232,12 @@
                 android:title="@string/show_hw_layers_updates"
                 android:summary="@string/show_hw_layers_updates_summary"/>
 
-        <CheckBoxPreference
-                android:key="show_hw_overdraw"
-                android:title="@string/show_hw_overdraw"
-                android:summary="@string/show_hw_overdraw_summary"/>
+        <ListPreference
+                android:key="debug_hw_overdraw"
+                android:title="@string/debug_hw_overdraw"
+                android:persistent="false"
+                android:entries="@array/debug_hw_overdraw_entries"
+                android:entryValues="@array/debug_hw_overdraw_values" />
 
         <ListPreference
                 android:key="show_non_rect_clip"
@@ -233,7 +246,6 @@
                 android:entries="@array/show_non_rect_clip_entries"
                 android:entryValues="@array/show_non_rect_clip_values" />
 
-<!-- **** GANBAROU_PATCH_START **** 
         <CheckBoxPreference
                 android:key="force_msaa"
                 android:title="@string/force_msaa"
@@ -243,11 +255,9 @@
                 android:key="disable_overlays"
                 android:title="@string/disable_overlays"
                 android:summary="@string/disable_overlays_summary"/>
-**** GANBAROU_PATCH_END **** -->
 
     </PreferenceCategory>
 
-<!-- **** GANBAROU_PATCH_START **** 
     <PreferenceCategory android:key="debug_monitoring_category"
             android:title="@string/debug_monitoring_category">
 
@@ -276,7 +286,6 @@
             android:entryValues="@array/enable_opengl_traces_values" />
 
     </PreferenceCategory>
-**** GANBAROU_PATCH_END **** -->
 
     <PreferenceCategory android:key="debug_applications_category"
             android:title="@string/debug_applications_category">
@@ -285,6 +294,13 @@
             android:key="immediately_destroy_activities"
             android:title="@string/immediately_destroy_activities"
             android:summary="@string/immediately_destroy_activities_summary"/>
+
+        <ListPreference
+            android:key="select_runtime"
+            android:title="@string/select_runtime_title"
+            android:dialogTitle="@string/select_runtime_dialog_title"
+            android:entries="@array/select_runtime_titles"
+            android:entryValues="@array/select_runtime_values" />
 
         <ListPreference
             android:key="app_process_limit"
@@ -303,11 +319,6 @@
             android:title="@string/kill_app_longpress_back"
             android:summary="@string/kill_app_longpress_back_summary"/>
 
-        <CheckBoxPreference
-            android:key="experimental_webview"
-            android:title="@string/experimental_webview"
-            android:summary="@string/experimental_webview_summary"/>
-
-     </PreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>

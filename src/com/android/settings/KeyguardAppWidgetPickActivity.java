@@ -46,6 +46,7 @@ import android.view.IWindowManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -89,6 +90,8 @@ public class KeyguardAppWidgetPickActivity extends Activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addPrivateFlags(
+                WindowManager.LayoutParams.PRIVATE_FLAG_INHERIT_TRANSLUCENT_DECOR);
         setContentView(R.layout.keyguard_appwidget_picker_layout);
         super.onCreate(savedInstanceState);
 
@@ -517,8 +520,8 @@ public class KeyguardAppWidgetPickActivity extends Activity
                     // Found in KeyguardHostView.java
                     final int KEYGUARD_HOST_ID = 0x4B455947;
                     int userId = ActivityManager.getCurrentUser();
-                    mAppWidgetId = AppWidgetHost.allocateAppWidgetIdForSystem(KEYGUARD_HOST_ID,
-                            userId);
+                    mAppWidgetId = AppWidgetHost.allocateAppWidgetIdForPackage(KEYGUARD_HOST_ID,
+                            userId, "com.android.keyguard");
                 }
                 mAppWidgetManager.bindAppWidgetId(
                         mAppWidgetId, intent.getComponent(), mExtraConfigureOptions);

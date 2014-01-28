@@ -39,8 +39,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.Telephony;
-import android.text.TextUtils;
-import android.telephony.MSimTelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -79,7 +77,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
     private static final Uri DEFAULTAPN_URI = Uri.parse(RESTORE_CARRIERS_URI);
     private static final Uri PREFERAPN_URI = Uri.parse(PREFERRED_APN_URI);
-    private Uri mPreferApnUri;
 
     private static boolean mRestoreDefaultApnMode;
 
@@ -87,7 +84,6 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     private RestoreApnProcessHandler mRestoreApnProcessHandler;
     private HandlerThread mRestoreDefaultApnThread;
 
-    private int mSubscription = 0;
     private String mSelectedKey;
 
     private IntentFilter mMobileStateFilter;
@@ -124,18 +120,10 @@ public class ApnSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.apn_settings);
-        mSubscription = getActivity().getIntent().getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
-                MSimTelephonyManager.getDefault().getDefaultSubscription());
-        Log.d(TAG, "onCreate received sub :" + mSubscription);
+
         mMobileStateFilter = new IntentFilter(
                 TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED);
         setHasOptionsMenu(true);
-        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
-            mPreferApnUri = Uri.parse(PREFERRED_APN_URI + "/" + mSubscription);
-        } else {
-            mPreferApnUri = Uri.parse(PREFERRED_APN_URI);
-        }
-        Log.d(TAG, "Preferred APN Uri is set to '" + mPreferApnUri.toString() + "'");
     }
 
     @Override
@@ -176,7 +164,7 @@ public class ApnSettings extends SettingsPreferenceFragment implements
                 Telephony.Carriers.DEFAULT_SORT_ORDER);
 
         if (cursor != null) {
-            PreferenceGroup apnList = (PreferenceGroup) findPreference("apn_list");
+            PreferenceGroup apnList = (PreferenceGroup) getPreferenceScreen().findPreference("apn_list");
             apnList.removeAll();
 
             ArrayList<Preference> mmsApnList = new ArrayList<Preference>();
@@ -280,13 +268,13 @@ public class ApnSettings extends SettingsPreferenceFragment implements
 
         ContentValues values = new ContentValues();
         values.put(APN_ID, mSelectedKey);
-        resolver.update(mPreferApnUri, values, null, null);
+        resolver.update(PREFERAPN_URI, values, null, null);
     }
 
     private String getSelectedApnKey() {
         String key = null;
 
-        Cursor cursor = getContentResolver().query(mPreferApnUri, new String[] {"_id"},
+        Cursor cursor = getContentResolver().query(PREFERAPN_URI, new String[] {"_id"},
                 null, null, Telephony.Carriers.DEFAULT_SORT_ORDER);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();

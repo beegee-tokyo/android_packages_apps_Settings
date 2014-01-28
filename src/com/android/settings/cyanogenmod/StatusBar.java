@@ -22,38 +22,27 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.text.format.DateFormat;
-import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-/**** GANBAROU_PATCH_START ****/
-import android.util.Slog;
-/**** GANBAROU_PATCH_END ****/
-
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String STATUS_BAR_CLOCK_CATEGORY = "category_status_bar_clock";
-    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
-    private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
-/**** GANBAROU_PATCH_START ****/
-    private static final String STATUS_BAR_NAVI = "status_bar_show_nav";
-/**** GANBAROU_PATCH_END ****/
-    
-    private ListPreference mStatusBarAmPm;
+
+    private static final String STATUS_BAR_BATTERY_SHOW_PERCENT = "status_bar_battery_show_percent";
+
+    private static final String STATUS_BAR_STYLE_HIDDEN = "4";
+    private static final String STATUS_BAR_STYLE_TEXT = "6";
+
     private ListPreference mStatusBarBattery;
+    private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarCmSignal;
-/**** GANBAROU_PATCH_START ****/
-    private CheckBoxPreference mStatusBarNav;
-/**** GANBAROU_PATCH_END ****/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,25 +53,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
-        mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
+        mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY);
+        mStatusBarBatteryShowPercent =
+                (SystemSettingCheckBoxPreference) findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
-/**** GANBAROU_PATCH_START ****/
-        mStatusBarNav = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NAVI);
-/**** GANBAROU_PATCH_END ****/
-
-        if (DateFormat.is24HourFormat(getActivity())) {
-            ((PreferenceCategory) prefSet.findPreference(STATUS_BAR_CLOCK_CATEGORY))
-                    .removePreference(prefSet.findPreference(STATUS_BAR_AM_PM));
-        } else {
-            mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
-            int statusBarAmPm = Settings.System.getInt(resolver,
-                    Settings.System.STATUS_BAR_AM_PM, 2);
-
-            mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
-            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
-            mStatusBarAmPm.setOnPreferenceChangeListener(this);
-        }
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
@@ -94,10 +68,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 statusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
             }
         } catch (SettingNotFoundException e) {
+            // Do nothing
         }
 
-        int statusBarBattery = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_BATTERY, 0);
-        mStatusBarBattery.setValue(String.valueOf(statusBarBattery));
+        int batteryStyle = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_BATTERY, 0);
+        mStatusBarBattery.setValue(String.valueOf(batteryStyle));
         mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
         mStatusBarBattery.setOnPreferenceChangeListener(this);
 
@@ -106,45 +81,27 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
-        PreferenceCategory generalCategory =
-                (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
-
         if (Utils.isWifiOnly(getActivity())) {
-            generalCategory.removePreference(mStatusBarCmSignal);
+            prefSet.removePreference(mStatusBarCmSignal);
         }
 
-/** GANBAROU_PATCH_START **/
-/** Enable brightness control by swiping on the status bar for tablets! **/
-//        if (Utils.isTablet(getActivity())) {
-//            generalCategory.removePreference(statusBarBrightnessControl);
-//        }
-
-/** Make navigation in status bar switchable if we are a tablet **/
-        mStatusBarNav.setOnPreferenceChangeListener(this);
-//Slog.d("TopNavBar", "StatusBar - setOnPreferenceChangeListener");
-
-        if (!Utils.isTablet(getActivity())) {
-                generalCategory.removePreference(mStatusBarNav);
-                Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 1);
-//Slog.d("TopNavBar", "StatusBar - disable checkbox");
+        if (Utils.isTablet(getActivity())) {
+            prefSet.removePreference(statusBarBrightnessControl);
         }
-/** GANBAROU_PATCH_END **/
+
+        enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (mStatusBarAmPm != null && preference == mStatusBarAmPm) {
-            int statusBarAmPm = Integer.valueOf((String) newValue);
-            int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
-            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarBattery) {
-            int statusBarBattery = Integer.valueOf((String) newValue);
+        if (preference == mStatusBarBattery) {
+            int batteryStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarBattery.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_BATTERY, statusBarBattery);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_BATTERY, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+
+            enableStatusBarBatteryDependents((String)newValue);
             return true;
         } else if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
@@ -152,22 +109,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
-
-/** GANBAROU_PATCH_START **/
-        } else if (preference == mStatusBarNav) {
-//Slog.d("TopNavBar", "StatusBar - onPreferenceChange");
-	    if (newValue.toString().equals("true")) {
-		Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 0);
-	    } else {
-		Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NAVIGATION, 1);
-	    }
-	    int StatusBarNavValue = Settings.System.getInt(resolver,
-                    Settings.System.STATUS_BAR_NAVIGATION, 0);
-//Slog.d("TopNavBar", "StatusBar - StatusBarNavValue = "+StatusBarNavValue);
-//Slog.d("TopNavBar", "StatusBar - newValue = "+newValue);
-	    return true;
-/** GANBAROU_PATCH_END **/
         }
+
         return false;
+    }
+
+    private void enableStatusBarBatteryDependents(String value) {
+        boolean enabled = !(value.equals(STATUS_BAR_STYLE_TEXT)
+                || value.equals(STATUS_BAR_STYLE_HIDDEN));
+        mStatusBarBatteryShowPercent.setEnabled(enabled);
     }
 }

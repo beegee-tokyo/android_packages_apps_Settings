@@ -36,14 +36,11 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.provider.Telephony;
-import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
@@ -63,9 +60,9 @@ public class ApnEditor extends SettingsPreferenceFragment
     private final static String KEY_ROAMING_PROTOCOL = "apn_roaming_protocol";
     private final static String KEY_CARRIER_ENABLED = "carrier_enabled";
     private final static String KEY_BEARER = "bearer";
+    private final static String KEY_MVNO_TYPE = "mvno_type";
     protected static final String EDIT_ACTION = "edit_action";
     protected static final String EDIT_DATA = "edit_data";
-    private final static String KEY_MVNO_TYPE = "mvno_type";
 
     private static final int MENU_DELETE = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
@@ -96,7 +93,6 @@ public class ApnEditor extends SettingsPreferenceFragment
 
     private String mCurMnc;
     private String mCurMcc;
-    private int mSubscription = 0;
 
     private Uri mUri;
     private Cursor mCursor;
@@ -208,10 +204,6 @@ public class ApnEditor extends SettingsPreferenceFragment
             mUri = intent.getData();
         }
 
-        // Read the subscription received from Phone settings.
-        mSubscription = intent.getIntExtra(SelectSubscription.SUBSCRIPTION_KEY,
-                MSimTelephonyManager.getDefault().getDefaultSubscription());
-        Log.d(TAG,"ApnEditor onCreate received sub: " + mSubscription);
         mFirstTime = icicle == null;
 
         if (action.equals(Intent.ACTION_INSERT)) {
@@ -515,7 +507,6 @@ public class ApnEditor extends SettingsPreferenceFragment
         String apn = checkNotSet(mApn.getText());
         String mcc = checkNotSet(mMcc.getText());
         String mnc = checkNotSet(mMnc.getText());
-        int dataSub = 0;
 
         if (getErrorMsg() != null && !force) {
             showDialog(ERROR_DIALOG_ID);
@@ -565,19 +556,8 @@ public class ApnEditor extends SettingsPreferenceFragment
 
         values.put(Telephony.Carriers.NUMERIC, mcc + mnc);
 
-        try {
-            dataSub = Settings.Global.getInt(getContentResolver(),
-                    Settings.Global.MULTI_SIM_DATA_CALL_SUBSCRIPTION);
-        } catch (SettingNotFoundException snfe) {
-            // Exception Reading Multi Sim Data Subscription Value
-            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
-               Log.e(TAG, "Exception Reading Multi Sim Data Subscription Value.", snfe);
-            }
-        }
-
         if (mCurMnc != null && mCurMcc != null) {
-            if (mCurMnc.equals(mnc) && mCurMcc.equals(mcc) &&
-                    mSubscription == dataSub ) {
+            if (mCurMnc.equals(mnc) && mCurMcc.equals(mcc)) {
                 values.put(Telephony.Carriers.CURRENT, 1);
             }
         }

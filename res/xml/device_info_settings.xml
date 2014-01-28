@@ -43,7 +43,6 @@
         </PreferenceScreen>
 
         <!-- CyanogenMod Updates -->
-<!-- **** GANBAROU_PATCH_START ****
         <PreferenceScreen android:key="cm_updates"
                 android:title="@string/cmupdate_settings_title" 
                 android:summary="@string/cmupdate_settings_summary">
@@ -51,18 +50,16 @@
                     android:targetPackage="com.cyanogenmod.updater"
                     android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
         </PreferenceScreen>
-**** GANBAROU_PATCH_END **** -->
 
         <!-- Anonymous statistics - (CMStats) -->
-<!-- **** GANBAROU_PATCH_START ****
+<!-- *** GANBAROU_CHANGE_START ***
         <PreferenceScreen
             android:key="cmstats"
             android:title="@string/anonymous_statistics_title"
             android:summary="@string/anonymous_statistics_summary"
             android:fragment="com.android.settings.cmstats.AnonymousStats" >
         </PreferenceScreen>
-**** GANBAROU_PATCH_END **** -->
-
+  *** GANBAROU_CHANGE_END *** -->
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
@@ -94,12 +91,14 @@
             </PreferenceScreen>
 
             <!-- CM License information -->
+<!-- *** GANBAROU_CHANGE_START ***
             <PreferenceScreen
                     android:key="cmlicense"
                     android:title="@string/cmlicense_title">
                 <intent android:action="android.settings.CMLICENSE" />
             </PreferenceScreen>
-
+   *** GANBAROU_CHANGE_END *** -->
+				
             <!-- Terms and conditions -->
             <PreferenceScreen
                     android:key="terms"

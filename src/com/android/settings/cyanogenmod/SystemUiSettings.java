@@ -26,7 +26,6 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
-import android.util.Slog;
 import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
@@ -40,17 +39,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String CATEGORY_NAVBAR = "navigation_bar";
-    private static final String KEY_PIE_CONTROL = "pie_control";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
 
-    private PreferenceScreen mPieControl;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
-
-    // **** GANBAROU_PATCH_START ****
-    private static final String KEY_NAV_BAR_POS = "nav_position";
-    ListPreference mNavPos;
-    // **** GANBAROU_PATCH_END ****
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,14 +50,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
-
-        // **** GANBAROU_PATCH_START ****
-        // Set listener for Navigation Bar Position ListPreference
-        mNavPos = (ListPreference) prefScreen.findPreference(KEY_NAV_BAR_POS);
-        mNavPos.setOnPreferenceChangeListener(this);
-        // **** GANBAROU_PATCH_END ****
-
-        mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
 
         // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
@@ -81,32 +65,22 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         try {
             boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
 
-            // Hide no-op "Status bar visible" mode on devices without navigation bar
             if (hasNavBar) {
                 mExpandedDesktopPref.setOnPreferenceChangeListener(this);
                 mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
                 updateExpandedDesktop(expandedDesktopValue);
                 prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
             } else {
+                // Hide no-op "Status bar visible" expanded desktop mode
                 mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
                 mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
                 prefScreen.removePreference(mExpandedDesktopPref);
-            }
-
-            // Hide navigation bar category on devices without navigation bar
-            if (!hasNavBar) {
+                // Hide navigation bar category
                 prefScreen.removePreference(findPreference(CATEGORY_NAVBAR));
-                mPieControl = null;
             }
         } catch (RemoteException e) {
             Log.e(TAG, "Error getting navigation bar status");
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updatePieControlSummary();
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -119,33 +93,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             updateExpandedDesktop(value ? 2 : 0);
             return true;
         }
-        // **** GANBAROU_PATCH_START ****
-        if (preference == mNavPos) {
-Slog.d("NavBarPos", "mNavPos has changed to " + objValue.toString());
-            int mNavPosSel = 2;
-            if (objValue.toString().equals("left")) {
-                mNavPosSel = 0;
-            } else if (objValue.toString().equals("right")) {
-                mNavPosSel = 1;
-            }
-            Settings.System.putInt(getContentResolver(), Settings.System.NAV_BAR_POS, mNavPosSel);
-            return true;
-        }
-        // **** GANBAROU_PATCH_ENDS ****
+
         return false;
-    }
-
-    private void updatePieControlSummary() {
-        if (mPieControl != null) {
-            boolean enabled = Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0) != 0;
-
-            if (enabled) {
-                mPieControl.setSummary(R.string.pie_control_enabled);
-            } else {
-                mPieControl.setSummary(R.string.pie_control_disabled);
-            }
-        }
     }
 
     private void updateExpandedDesktop(int value) {
