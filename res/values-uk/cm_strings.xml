@@ -307,6 +307,7 @@
     <string name="wake_when_plugged_or_unplugged_title">Екран прокидається при підключені</string>
     <string name="wake_when_plugged_or_unplugged_summary">Екран прокидається при підключені до зарядного пристрою</string>
     <string name="lights_category_title">Індикація</string>
+    <string name="notification_pulse_title">Індикатор подій</string>
     <string name="notification_light_general_title">Головні</string>
     <string name="notification_light_applist_title">Програми</string>
     <string name="notification_light_phonelist_title">Телефон</string>

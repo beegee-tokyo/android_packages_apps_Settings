@@ -140,6 +140,7 @@
     <string name="icon_picker_pack_title">Ikon csomag</string>
     <string name="display_lights_settings_title">Kijelző &amp; Fények</string>
     <string name="lights_category_title">Fények</string>
+    <string name="notification_pulse_title">Értesítési fények</string>
     <string name="notification_light_general_title">Általános</string>
     <string name="notification_light_applist_title">Alkalmazások</string>
     <string name="notification_light_phonelist_title">Telefon</string>
@@ -182,8 +183,6 @@
     <string name="battery_light_full_color_title">Teljesen feltöltve</string>
     <string name="lockpattern_settings_enable_error_path_title">Hibás minta megjelenítése</string>
     <string name="lockpattern_settings_enable_dots_title">Feloldási pontok megjelenítése</string>
-    <string name="lockscreen_vibrate_enabled_title">Rezgés</string>
-    <string name="lockscreen_vibrate_enabled_head">Rezgés feloldáskor</string>
     <string name="screen_security_category">Képernyővédelem</string>
     <string name="screen_security_title">Képernyőzár</string>
     <string name="screen_security_summary">Képernyőzár beállítások, biztonság, késleltetés</string>

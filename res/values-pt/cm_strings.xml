@@ -382,6 +382,7 @@
     <string name="title_tile_volume">Volume</string>
     <string name="title_tile_expanded_desktop">Área de trabalho expandida</string>
     <string name="title_dynamic_dock_battery">Bateria do dock</string>
+    <string name="notification_pulse_title">Luz de notificação</string>
     <string name="power_notifications_category_title">Notificação de carregamento</string>
     <string name="power_notifications_enable_title">Ativar</string>
     <string name="power_notifications_vibrate_title">Vibrar</string>
@@ -605,8 +606,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="cmlicense_title">CyanogenMod Legal</string>
     <string name="settings_cmlicense_activity_title">CyanogenMod Legal</string>
     <string name="settings_cmlicense_activity_unreachable">Você não tem conexão com a Internet. Para ver esta informação agora, navegue para %s de qualquer computador conectado à Internet.</string>
-    <string name="lockscreen_vibrate_enabled_title">Vibrar</string>
-    <string name="lockscreen_vibrate_enabled_head">Vibra quando desbloqueia</string>
     <string name="screen_security_category">Segurança de tela</string>
     <string name="screen_security_title">Tela de bloqueio</string>
     <string name="screen_security_summary">Ver ou alterar a segurança da tela de bloqueio, atraso e tempo limite</string>

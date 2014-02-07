@@ -140,6 +140,7 @@
     <string name="icon_picker_pack_title">Symbolbibliothek</string>
     <string name="display_lights_settings_title">Display &amp; LED</string>
     <string name="lights_category_title">LED</string>
+    <string name="notification_pulse_title">Benachrichtigungslicht</string>
     <string name="notification_light_general_title">Allgemein</string>
     <string name="notification_light_applist_title">Apps</string>
     <string name="notification_light_phonelist_title">Telefon</string>
@@ -153,6 +154,10 @@
     <string name="adaptive_backlight_summary">Die Hintergrundbeleuchtung des Bildschirms intelligent regeln, um die Akkulaufzeit zu verbessern</string>
     <string name="wake_when_plugged_or_unplugged_title">Beim Einstecken aufwecken</string>
     <string name="wake_when_plugged_or_unplugged_summary">Beim Anschließen oder Trennen des Ladegerätes das Display anschalten</string>
+    <string name="screen_animation_off_title">Abschaltanimation</string>
+    <string name="screen_animation_style_title">Animationsstil</string>
+    <string name="screen_animation_style_electronbeam">Elektronenstrahl</string>
+    <string name="screen_animation_style_fade">Ausblenden</string>
     <string name="edit_light_settings">Farbeinstellungen ändern</string>
     <string name="pulse_speed_title">Pulsdauer und Geschwindigkeit</string>
     <string name="default_time">Normal</string>
@@ -178,8 +183,6 @@
     <string name="battery_light_full_color_title">Aufgeladen</string>
     <string name="lockpattern_settings_enable_error_path_title">Fehler anzeigen</string>
     <string name="lockpattern_settings_enable_dots_title">Punkte anzeigen</string>
-    <string name="lockscreen_vibrate_enabled_title">Vibrieren</string>
-    <string name="lockscreen_vibrate_enabled_head">Beim Entsperren vibrieren</string>
     <string name="screen_security_category">Bildschirmsicherheit</string>
     <string name="screen_security_title">Sicherheitssperre</string>
     <string name="screen_security_summary">Einstellungen zur Sicherheitssperre, Timeouts und Abschaltverzögerungen anzeigen und ändern</string>
@@ -497,6 +500,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="collapse_on_dismiss_never_summary">Nach Entfernen von Benachrichtigungen geöffnet lassen</string>
     <string name="collapse_on_dismiss_if_empty_summary">Nach dem Entfernen der letzten Benachrichtigung schließen</string>
     <string name="collapse_on_dismiss_if_no_clearable_summary">Nach dem Entfernen der letzten nicht dauerhaft angezeigten Benachrichtigung schließen</string>
+    <string name="double_tap_to_wake_title">Aufwecken durch doppeltes Tippen</string>
     <string name="category_quick_access">Schnellzugriffsleiste</string>
     <string name="title_quick_access">In Benachrichtigungsleiste anzeigen</string>
     <string name="title_quick_access_linked">Anordnung koppeln</string>
@@ -504,7 +508,9 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="font_size_sample">Beispieltext</string>
     <string name="sms_security_check_limit_title">SMS-Begrenzung</string>
     <string name="sms_security_check_limit_summary">Apps können %d Nachrichten in 30 Minuten senden, bevor eine Bestätigung erforderlich ist</string>
+    <string name="sms_security_check_limit_summary_none">Apps dürfen keine Nachrichten ohne Bestätigung versenden</string>
     <string name="sms_security_check_limit_default">30 (Standard)</string>
+    <string name="sms_security_check_limit_none">Keine</string>
     <string name="lockscreen_custom_widgets_title">Benutzerdefinierte Widgets</string>
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_summary">Einstellungen des Standard-Widgets auf Sperr- und Startbildschirm anpassen</string>
