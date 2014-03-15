@@ -13,8 +13,11 @@
 -keep class com.android.settings.fuelgauge.*
 -keep class com.android.settings.users.*
 -keep class com.android.settings.NotificationStation
--keep class com.koushikdutta.**
--keep class com.android.settings.cyanogenmod.superuser.**
+# GANBAROU_CHANGE_START
+#     We user ChainFire SU, not Koush!
+#-keep class com.koushikdutta.**
+#-keep class com.android.settings.cyanogenmod.superuser.**
+# GANBAROU_CHANGE_END
 -keep class com.android.settings.cyanogenmod.privacyguard.**
 
 # Keep click responders

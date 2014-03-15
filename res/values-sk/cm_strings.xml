@@ -258,7 +258,6 @@
     <string name="link_volume_ringtones">Prepojiť hlasitosti vyzváňania a upozornení</string>
     <string name="link_volume_mutes">Tichý režim ovplyvňuje upozornenia</string>
     <string name="volume_keys_control_ring_stream">Tlačidlá hlasitosti ovládajú hlasitosť vyzváňania</string>
-    <string name="notification_pulse_title">Svetelná indikácia</string>
     <string name="notification_light_general_title">Všeobecné</string>
     <string name="notification_light_applist_title">Aplikácie</string>
     <string name="notification_light_phonelist_title">Telefón</string>

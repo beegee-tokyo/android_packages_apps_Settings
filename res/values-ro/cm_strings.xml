@@ -37,7 +37,6 @@
     <string name="root_access_adb">"Numai pentru ADB"</string>
     <string name="root_access_all">"Aplicaţii şi ADB"</string>
     <string name="accessibility_home_button_answers_call_prerefence_title">"Butonul de pornire acceptă apelul"</string>
-    <string name="headset_category_title">"Set cu cască"</string>
     <string name="quiet_hours_title">"Ore de linişte"</string>
     <string name="quiet_hours_summary">"Configuraţi orele de linişte"</string>
     <string name="quiet_hours_note_summary">"Notă: Apelurile primite se vor comporta ca de obicei în timpul orelor de linişte"</string>
@@ -74,8 +73,6 @@
     <string name="preview_version_title">"Versiune"</string>
     <string name="preview_country_title">"Ţară"</string>
     <string name="preview_carrier_title">"Reţea"</string>
-    <string name="header_category_interface">Personalizare</string>
-    <string name="homescreen_settings_title">Ecranul principal</string>
     <string name="themes_settings_title">"Teme"</string>
     <string name="system_settings_title">Interfaţă</string>
     <string name="system_interface_title">"Interfaţă sistem"</string>
@@ -282,7 +279,6 @@
     <string name="volume_keys_control_ring_stream">Butoanele de volum controlează volumul soneriei</string>
     <string name="display_lights_settings_title">Ecran si indicatoare luminoase</string>
     <string name="lights_category_title">Indicatoare luminoase</string>
-    <string name="notification_pulse_title">Indicator notificare</string>
     <string name="notification_light_general_title">"General"</string>
     <string name="notification_light_applist_title">"Aplicaţii"</string>
     <string name="notification_light_phonelist_title">"Telefon"</string>

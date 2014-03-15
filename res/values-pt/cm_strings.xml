@@ -26,7 +26,6 @@
     <string name="root_access_apps">Somente aplicativos</string>
     <string name="root_access_adb">Somente ADB</string>
     <string name="root_access_all">Aplicativos e ADB</string>
-    <string name="sync_item_title" msgid="1931551540462877488">"Sincronizar <xliff:g id="AUTHORITY" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g>"</string>
     <string name="quiet_hours_title">Horas de silêncio</string>
     <string name="quiet_hours_summary">Ver ou alterar o horário que o dispositivo deve ficar em silêncio</string>
     <string name="quiet_hours_note_summary">Nota: Ligações recebidas se comportarão normalmente durante as horas de silêncio</string>
@@ -530,7 +529,6 @@
     <string name="wifi_ibss_freq_title">Canal / Frequência</string>
     <string name="wifi_channel">Canal</string>
     <string name="wifi_mhz">MHz</string>
-    <string name="notification_pulse_title">Luz de notificação</string>
     <string name="power_notifications_category_title">Notificação de carregamento</string>
     <string name="power_notifications_enable_title">Ativar</string>
     <string name="power_notifications_vibrate_title">Vibrar</string>
@@ -747,7 +745,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="sim_pin_attempts">\nTentativas restantes :</string>
     <string name="sync_item_title"><xliff:g id="authority" example="Calendar" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%s</xliff:g></string>
     <string name="service_client_name"><xliff:g id="client_name" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s</xliff:g></string>
-    <string name="intent_sender_data_label"><xliff:g id="data" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">Data:</xliff:g></string>
     <string name="service_process_name"><xliff:g id="process" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s</xliff:g></string>
     <string name="device_additional_status">Informação adicional de status</string>
     <string name="wifi_disabled_association_rejected">Associação foi rejeitada</string>
@@ -756,7 +753,6 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="bluetooth_sap_profile_summary_connected">Conectado a servidor de acesso SIM</string>
     <string name="data_title">Chamada de dados</string>
     <string name="set_dds_success">Conjunto de assinaturas de dados</string>
-    <string name="debug_intent_sender_label">Remetente de depuração de instância</string>
     <string name="bluetooth_profile_dun">Acesso a rede discada</string>
     <string name="tune_away_Default">Desativar</string>
     <string name="sim_pin_change_failed_enable_sim_lock">Travar SIM/RUIM antes de trocar o PIN</string>

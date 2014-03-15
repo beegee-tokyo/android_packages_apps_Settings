@@ -307,7 +307,6 @@
     <string name="link_volume_ringtones">Gleiche Lautstärke für Klingelton und Benachrichtigungen</string>
     <string name="link_volume_mutes">Klingelton und Benachrichtigungen gemeinsam stummschalten</string>
     <string name="volume_keys_control_ring_stream">Lautstärketasten steuern Benachrichtigungslautstärke</string>
-    <string name="volume_keys_control_ring_stream">Lautstärketasten steuern Klingeltonlautstärke</string>
     <string name="hardware_keys_show_overflow_title">Menü-Schaltfläche anzeigen</string>
     <string name="hardware_keys_show_overflow_summary">Zusätzlich zur Menü-Taste in Apps eine Menü-Schaltfläche anzeigen</string>
     <string name="hardware_keys_show_overflow_toast_enable">Die Menü-Schaltfläche wird vermutlich erst nach einem Neustart der App sichtbar.</string>
@@ -727,7 +726,6 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
     <string name="volume_wake_summary">Drücken einer Lautstärketaste aktiviert den Bildschirm</string>
     <string name="navigation_bar_category">Navigationsleiste</string>
     <string name="safe_headset_volume_title">Headset-Lautstärkebegrenzung</string>
-    <string name="button_backlight_title">Helligkeit der Tasten</string>
     <string name="gamma_tuning_title_head">Gammakorrektur</string>
     <string name="gamma_tuning_summary_head">Gammawerte einstellen</string>
     <string name="gamma_tuning_contrast">Kontrast</string>

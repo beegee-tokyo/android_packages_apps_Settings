@@ -544,8 +544,6 @@
     <string name="lockscreen_background_color_fill">Fyldfarve</string>
     <string name="lockscreen_background_custom_image">Brugerdefineret billede</string>
     <string name="lockscreen_background_default_wallpaper">Standardtapet</string>
-    <string name="headset_connect_player_title">Start musik-app</string>
-    <string name="headset_connect_player_summary">Start standard-app til musik, når headset tilsluttes</string>
     <string name="safe_headset_volume_title">Sikker lydstyrke for håndfri</string>
     <string name="cyanogenmod_waiver_title">Ophævelse</string>
     <string name="cyanogenmod_waiver_body">At ændre denne indstilling kan være imod loven.\n\nVed at vælge \'OK\' herunder anerkender du denne advarsel og ophæver, sikrer og holder CyanogenMod og dens bidragydere skadesløse fra alle juridiske forpligtelser.</string>
@@ -754,7 +752,6 @@ to for at indsætte yderligere kontrolpunkter. \'Fjern\' sletter den valgte linj
     <string name="sim_pin_attempts">\nResterende forsøg :</string>
     <string name="sim_pin_enabled">PIN aktiveret</string>
     <string name="sim_pin_disabled">PIN deaktiveret</string>
-    <string name="device_status_summary" product="default">Batteristatus, batteriniveau, etc.</string>
     <string name="device_additional_status">Supplerende statusinformation</string>
     <string name="device_additional_status_summary">Telefonnummer, signal, IMEI, etc.</string>
     <string name="data_usage_tab_slot">SIM </string>

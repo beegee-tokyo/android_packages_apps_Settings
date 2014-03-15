@@ -288,7 +288,6 @@
     <string name="volume_keys_control_ring_stream">ئاۋاز كۇنۇپكىسى ئاۋاز مىقدارىنى تىزگىنلەيدۇ</string>
     <string name="display_lights_settings_title">كۆرسىتىش ۋە چىراغ</string>
     <string name="lights_category_title">چىراغ</string>
-    <string name="notification_pulse_title">ئۇقتۇرۇش چىرىغى</string>
     <string name="notification_light_general_title">ئادەتتىكى</string>
     <string name="notification_light_applist_title">ئەپلەر</string>
     <string name="notification_light_phonelist_title">تېلېفون</string>

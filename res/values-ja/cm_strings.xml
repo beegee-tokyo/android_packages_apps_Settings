@@ -92,7 +92,6 @@
     <string name="battery_light_full_color_title">フル時</string>
     <string name="display_lights_settings_title">画面とライト</string>
     <string name="lights_category_title">ライト</string>
-    <string name="notification_pulse_title">通知ライト</string>
     <string name="notification_light_general_title">一般</string>
     <string name="notification_light_phonelist_title">電話</string>
     <string name="notification_light_missed_call_title">不在着信</string>

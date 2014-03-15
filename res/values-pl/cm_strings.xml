@@ -313,7 +313,6 @@
     <string name="link_volume_ringtones">Połącz głośność dzwonka &amp; powiadomień</string>
     <string name="link_volume_mutes">Tryb cichy wpływa na powiadomienia</string>
     <string name="volume_keys_control_ring_stream">Przyciski głośności regulują głośność dzwonka</string>
-    <string name="notification_pulse_title">Dioda powiadomień</string>
     <string name="notification_light_general_title">Ogólne</string>
     <string name="notification_light_applist_title">Aplikacje</string>
     <string name="notification_light_phonelist_title">Telefon</string>
@@ -782,7 +781,6 @@ dwa nowe, odpowiadające kolejnym punktom kontrolnym. \'Usuń\' kasuje wybrany p
     <string name="bluetooth_dun_profile_summary_use_for">Użyj w celu dostępu do sieci Dial-Up</string>
     <string name="sel_sub_title">Konfiguracja usług</string>
     <string name="sel_sub_summary">Wybierz aktywną usługę</string>
-    <string name="select_subscription">Wybierz usługę</string>
     <string name="subs_settings">Status usługi</string>
     <string name="multi_sim_settings_title">Ustawienia wielu kart SIM</string>
     <string name="multi_sim_settings_summary">Skonfiguruj ustawienia dla wielu kart SIM</string>

@@ -67,7 +67,8 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CHANGE_PRIVACY_GUARD_STATE" />
 
-    <permission
+<!-- **** GANBAROU_PATCH_START ****
+	 <permission
         android:name="android.permission.REQUEST_SUPERUSER"
         android:protectionLevel="signature" />
     <permission
@@ -89,6 +90,7 @@
         android:logo="@drawable/ic_action_permission"
         android:permissionGroup="android.permission-group.SUPERUSER"
         android:protectionLevel="dangerous" />
+**** GANBAROU_PATCH_END **** -->
 
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
@@ -109,6 +111,7 @@
 
         <!-- Only system/su can open this activity -->
         <!-- This activity will then call the MultitaskSuRequestActivity to create a new task stack -->
+<!-- **** GANBAROU_PATCH_START ****
         <activity
             android:name=".cyanogenmod.superuser.RequestActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -119,9 +122,11 @@
             android:process=":superuser"
             android:taskAffinity="com.android.settings.superuser"
             android:theme="@style/RequestThemeDark" />
+**** GANBAROU_PATCH_END **** -->
         <!-- Only system/su can open this activity -->
         <!-- This is activity is started in multiuser mode when the user invoking su -->
         <!-- is not the device owner (user id 0). -->
+<!-- **** GANBAROU_PATCH_START ****
         <activity
             android:name=".cyanogenmod.superuser.NotifyActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -132,9 +137,11 @@
             android:process=":superuser"
             android:taskAffinity="com.android.settings.superuser"
             android:theme="@style/RequestThemeDark" />
+**** GANBAROU_PATCH_END **** -->
 
         <!-- Multiple instances of this activity can be running for multiple su requests -->
-        <activity
+<!-- **** GANBAROU_PATCH_START ****
+       <activity
             android:name=".cyanogenmod.superuser.MultitaskSuRequestActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:excludeFromRecents="true"
@@ -163,6 +170,7 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+**** GANBAROU_PATCH_END **** -->
 
         <!-- Settings -->
 

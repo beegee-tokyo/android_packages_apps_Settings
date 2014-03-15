@@ -284,7 +284,6 @@
     <string name="volume_keys_control_ring_stream">Volymknapparna kontrollerar ringsignalsvolym</string>
     <string name="display_lights_settings_title">Skärm &amp; belysning</string>
     <string name="lights_category_title">Belysning</string>
-    <string name="notification_pulse_title">Aviseringsljus</string>
     <string name="notification_light_general_title">Allmänt</string>
     <string name="notification_light_applist_title">Appar</string>
     <string name="notification_light_phonelist_title">Telefon</string>
@@ -687,7 +686,6 @@ Varje linje i belysningslistan korresponerar med en <i>kontrollpunkt</i> i belys
     <string name="title_quick_access_linked">Länkad utformning</string>
     <string name="summary_quick_access_linked">Använd samma brickor och utformning som inställningspanelen</string>
     <string name="hardware_keys_action_launch_camera">Starta kamera</string>
-    <string name="button_backlight_title">Belysning</string>
     <string name="button_backlight_enabled">Lys upp knappar</string>
     <string name="keyboard_backlight_enabled">Lys upp tangentbord</string>
     <string name="button_backlight_seekbar_title">Knappljusstyrka</string>
